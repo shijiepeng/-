@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ArrowLeft, Activity, Brain, Users, ChevronRight } from "lucide-react";
+import { BottomNav } from "../components/BottomNav";
 import { useAssessment } from "../store";
 
 const questions = [
@@ -136,14 +137,8 @@ export function Assessment() {
             </button>
           </div>
 
-          {/* 返回首页 */}
-          <button
-            onClick={() => navigate("/home")}
-            className="w-full py-3 text-center text-[rgba(31,22,15,0.64)] font-medium"
-          >
-            返回首页
-          </button>
-        </main>
+          </main>
+        <BottomNav />
       </div>
     );
   }
@@ -306,6 +301,7 @@ export function Assessment() {
           {currentQuestion < questions.length - 1 ? "下一题" : "完成测评"}
         </button>
       </main>
+      <BottomNav />
     </div>
   );
 }

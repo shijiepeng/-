@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { ArrowLeft, Activity, Brain, Users, ChevronRight } from "lucide-react";
+import { Activity, Brain, Users, ChevronRight } from "lucide-react";
 import { trainingPackages } from "../data/trainingPackages";
 import { BottomNav } from "../components/BottomNav";
 
@@ -19,15 +19,6 @@ export function Training() {
     <div className="min-h-screen bg-[#f7f4f2] pb-24">
       {/* Header */}
       <header className="bg-[#f7f4f2] px-4 pt-6 pb-4">
-        <div className="flex items-center justify-between mb-6">
-          <button 
-            onClick={() => navigate("/home")}
-            className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
-          >
-            <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
-          </button>
-        </div>
-
         <h1 className="text-3xl font-extrabold text-[#4b3425] mb-2">
           心理健身房
         </h1>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { ArrowLeft, User, Settings, Award, Heart, TrendingUp, ChevronRight, Calendar, Target, Trash2 } from "lucide-react";
+import { User, Settings, Award, Heart, TrendingUp, ChevronRight, Calendar, Target, Trash2 } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useMoodRecords, useTrainingProgress, useStore } from "../store";
 
@@ -50,15 +50,6 @@ export function Profile() {
     <div className="min-h-screen bg-[#f7f4f2] pb-24">
       {/* Header */}
       <header className="bg-[#9bb068] px-4 pt-6 pb-8">
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={() => navigate("/home")}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20"
-          >
-            <ArrowLeft className="w-6 h-6 text-white" />
-          </button>
-        </div>
-
         {/* User Info */}
         <div className="flex items-center gap-4">
           <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-lg">
