@@ -148,15 +148,7 @@ export function MoodLog() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-      >
-        {/* Back Button */}
-        <button
-          onClick={() => navigate("/home")}
-          className="w-12 h-12 rounded-full border border-[#4B3425]/60 flex items-center justify-center mb-6 active:scale-95 transition-transform"
-        >
-          <ArrowLeft className="w-6 h-6 text-[#4B3425]" />
-        </button>
-      </motion.header>
+      />
 
       <motion.main
         className="px-4 pt-2"
