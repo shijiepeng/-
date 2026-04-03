@@ -33,7 +33,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const } },
 };
 
 export function Home() {
@@ -249,17 +249,6 @@ export function Home() {
             </motion.div>
           )}
 
-          {/* 本周情绪趋势图（有记录时显示） */}
-          {recentRecords.length >= 2 && (
-            <motion.div variants={itemVariants} className="mt-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Calendar className="w-5 h-5 text-[#926247]" />
-                <h2 className="text-lg font-bold text-[#4b3425]">本周情绪趋势</h2>
-              </div>
-              <MoodChart />
-            </motion.div>
-          )}
-
           {/* Quick Entry Buttons */}
           <motion.div variants={itemVariants} className="space-y-3 mt-6">
             <button
@@ -318,6 +307,17 @@ export function Home() {
               </div>
             </button>
           </motion.div>
+
+          {/* 本周情绪趋势图（有记录时显示） */}
+          {recentRecords.length >= 2 && (
+            <motion.div variants={itemVariants} className="mt-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Calendar className="w-5 h-5 text-[#926247]" />
+                <h2 className="text-lg font-bold text-[#4b3425]">本周情绪趋势</h2>
+              </div>
+              <MoodChart />
+            </motion.div>
+          )}
 
           {/* Info Card */}
           <motion.div variants={itemVariants}>

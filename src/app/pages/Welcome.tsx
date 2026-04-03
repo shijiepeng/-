@@ -64,15 +64,6 @@ export function Welcome() {
             </div>
           </div>
 
-          <div className="bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b] mb-8">
-            <h3 className="font-bold text-[#4b3425] mb-2">开始之前</h3>
-            <ul className="space-y-2 text-sm text-[#4b3425]">
-              <li>• 这里不治病，不替代心理咨询</li>
-              <li>• 帮你在日常生活中提升情绪调节能力</li>
-              <li>• 就像Keep帮你提升身体素质一样</li>
-            </ul>
-          </div>
-
           <div className="space-y-3">
             <button
               onClick={() => navigate("/assessment")}
@@ -86,6 +77,15 @@ export function Welcome() {
             >
               稍后再说，先看看
             </button>
+
+            <div className="bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b] mt-4">
+              <h3 className="font-bold text-[#4b3425] mb-2">开始之前</h3>
+              <ul className="space-y-2 text-sm text-[#4b3425]">
+                <li>• 这里不治病，不替代心理咨询</li>
+                <li>• 帮你在日常生活中提升情绪调节能力</li>
+                <li>• 就像Keep帮你提升身体素质一样</li>
+              </ul>
+            </div>
           </div>
 
           <p className="text-xs text-center text-[rgba(31,22,15,0.48)] mt-6">
