@@ -9,7 +9,7 @@ import { Training } from "./pages/Training";
 import { TrainingDetail } from "./pages/TrainingDetail";
 import { LessonDetail } from "./pages/LessonDetail";
 import { MoodLog } from "./pages/MoodLog";
-import { MoodRecord } from "./pages/MoodRecord";
+import { MoodEdit } from "./pages/MoodEdit";
 import { Profile } from "./pages/Profile";
 import { Situations } from "./pages/Situations";
 import { SituationPath } from "./pages/SituationPath";
@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/mood-record",
-    Component: MoodRecord,
+    Component: MoodEdit,
   },
   {
     path: "/profile",
