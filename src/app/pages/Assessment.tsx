@@ -3,6 +3,20 @@ import { useNavigate } from "react-router";
 import { ArrowLeft, Activity, Brain, Users, ChevronRight } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useAssessment } from "../store";
+import { motion } from "motion/react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+};
 
 const questions = [
   {
@@ -54,14 +68,24 @@ export function Assessment() {
   if (assessmentData) {
     return (
       <div className="min-h-screen bg-[#f7f4f2] pb-24">
-        <header className="bg-[#f7f4f2] px-4 pt-12 pb-4">
+        <motion.header
+          className="bg-[#f7f4f2] px-4 pt-12 pb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <h1 className="text-2xl font-extrabold text-[#4B3425]">测评报告</h1>
           <p className="text-sm text-[rgba(31,22,15,0.64)] mt-1">基于3题快速测试</p>
-        </header>
+        </motion.header>
 
-        <main className="px-4 pb-6">
+        <motion.main
+          className="px-4 pb-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
           {/* 快速测评报告 */}
-          <div className="mb-6">
+          <motion.div className="mb-6" variants={itemVariants}>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-[#4B3425]">快速测试</h2>
               <button
@@ -81,9 +105,10 @@ export function Assessment() {
                 const Icon = dim.icon;
                 const score = assessmentData.scores?.[dim.key] ?? 50;
                 return (
-                  <div
+                  <motion.div
                     key={dim.key}
                     className="bg-white rounded-2xl p-4 flex items-center gap-4"
+                    whileTap={{ scale: 0.98 }}
                   >
                     <div
                       className="w-12 h-12 rounded-full flex items-center justify-center"
@@ -97,20 +122,23 @@ export function Assessment() {
                         <span className="text-sm font-semibold text-[#4B3425]">{score}分</span>
                       </div>
                       <div className="h-2 bg-[rgba(31,22,15,0.08)] rounded-full overflow-hidden">
-                        <div
+                        <motion.div
                           className="h-full rounded-full"
-                          style={{ width: `${Math.min(100, score)}%`, backgroundColor: dim.color }}
+                          initial={{ width: 0 }}
+                          animate={{ width: `${Math.min(100, score)}%` }}
+                          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                          style={{ backgroundColor: dim.color }}
                         />
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
-          </div>
+          </motion.div>
 
           {/* 深化测评入口 */}
-          <div className="mb-6">
+          <motion.div className="mb-6" variants={itemVariants}>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-[#4B3425]">深化测评</h2>
               <button
@@ -120,9 +148,10 @@ export function Assessment() {
                 重新测评
               </button>
             </div>
-            <button
+            <motion.button
               onClick={() => navigate("/deep-assessment")}
               className="w-full bg-white rounded-2xl p-4 flex items-center justify-between"
+              whileTap={{ scale: 0.98 }}
             >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-[#d4e7b8] flex items-center justify-center">
@@ -134,10 +163,9 @@ export function Assessment() {
                 </div>
               </div>
               <ChevronRight className="w-5 h-5 text-[rgba(31,22,15,0.48)]" />
-            </button>
-          </div>
-
-          </main>
+            </motion.button>
+          </motion.div>
+        </motion.main>
         <BottomNav />
       </div>
     );
@@ -214,7 +242,12 @@ export function Assessment() {
   return (
     <div className="min-h-screen bg-[#f7f4f2]">
       {/* Header */}
-      <header className="bg-[#f7f4f2] px-4 pt-6 pb-4">
+      <motion.header
+        className="bg-[#f7f4f2] px-4 pt-6 pb-4"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex items-center justify-between mb-6">
           <button
             onClick={() => navigate("/home")}
@@ -231,28 +264,42 @@ export function Assessment() {
             <span>共{questions.length}题</span>
           </div>
           <div className="h-2 bg-[rgba(31,22,15,0.12)] rounded-full overflow-hidden">
-            <div
-              className="h-full bg-[#9bb068] transition-all duration-300"
-              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+            <motion.div
+              className="h-full bg-[#9bb068]"
+              initial={{ width: 0 }}
+              animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             />
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Question */}
       <main className="px-4 pb-24">
-        <h2 className="text-2xl font-bold text-[#4b3425] mb-8">
+        <motion.h2
+          key={currentQuestion}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="text-2xl font-bold text-[#4b3425] mb-8"
+        >
           {currentQ.question}
-        </h2>
+        </motion.h2>
 
         {isScaleQuestion ? (
-          <div className="space-y-6">
+          <motion.div
+            key={currentQuestion}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-6"
+          >
             <div className="text-sm text-[rgba(31,22,15,0.64)] mb-2">
               0 = {currentQ.minLabel}, 10 = {currentQ.maxLabel}
             </div>
             <div className="flex gap-2 justify-between">
               {[...Array(11)].map((_, i) => (
-                <button
+                <motion.button
                   key={i}
                   onClick={() => setScaleValue(i)}
                   className={`w-12 h-12 rounded-lg font-semibold text-lg transition-all ${
@@ -260,9 +307,10 @@ export function Assessment() {
                       ? "bg-[#9bb068] text-white scale-110"
                       : "bg-white text-[#4b3425] border-2 border-[rgba(31,22,15,0.12)]"
                   }`}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {i}
-                </button>
+                </motion.button>
               ))}
             </div>
             <div className="flex justify-between text-xs text-[rgba(31,22,15,0.64)]">
@@ -270,14 +318,20 @@ export function Assessment() {
               <span>还好</span>
               <span>{currentQ.maxLabel}</span>
             </div>
-          </div>
+          </motion.div>
         ) : (
-          <div className="space-y-4">
+          <motion.div
+            key={currentQuestion}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-4"
+          >
             <p className="text-sm text-[rgba(31,22,15,0.64)] mb-4">
               选一个最符合的就好，不用想太多
             </p>
             {currentQ.options.map((option, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => setSelectedOption(index)}
                 className={`w-full p-4 rounded-2xl text-left transition-all ${
@@ -285,11 +339,12 @@ export function Assessment() {
                     ? "bg-[#d4e7b8] border-2 border-[#9bb068]"
                     : "bg-white border-2 border-[rgba(31,22,15,0.12)]"
                 }`}
+                whileTap={{ scale: 0.98 }}
               >
                 <span className="text-[#4b3425] font-medium">{option.text}</span>
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {/* Next Button */}
