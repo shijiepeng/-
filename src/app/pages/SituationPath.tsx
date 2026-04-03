@@ -89,7 +89,6 @@ export function SituationPath() {
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
           </button>
-          <div className="text-sm text-[#4b3425]">9:41</div>
         </div>
 
         <div className="mb-4">

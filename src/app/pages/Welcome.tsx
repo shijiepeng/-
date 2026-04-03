@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Heart, Target, TrendingUp } from "lucide-react";
+import { Target, TrendingUp } from "lucide-react";
 
 export function Welcome() {
   const navigate = useNavigate();
@@ -8,8 +8,8 @@ export function Welcome() {
     <div className="min-h-screen bg-gradient-to-b from-[#9bb068] to-[#f7f4f2] flex flex-col">
       {/* Header */}
       <header className="px-4 pt-12 pb-8 text-center">
-        <div className="w-24 h-24 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
-          <Heart className="w-12 h-12 text-[#9bb068]" fill="#9bb068" />
+        <div className="w-24 h-24 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg overflow-hidden">
+          <img src="/image/icon.png" alt="icon" className="w-14 h-14 object-contain" />
         </div>
         <h1 className="text-4xl font-extrabold text-white mb-3">
           心理健身房
@@ -52,8 +52,8 @@ export function Welcome() {
             </div>
 
             <div className="flex gap-4 p-4 bg-[#f7f4f2] rounded-2xl">
-              <div className="w-12 h-12 bg-[#fe814b]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <Heart className="w-6 h-6 text-[#fe814b]" />
+              <div className="w-12 h-12 bg-[#fe814b]/20 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <img src="/image/icon.png" alt="icon" className="w-6 h-6 object-contain" />
               </div>
               <div>
                 <h3 className="font-bold text-[#4b3425] mb-1">温柔陪伴</h3>

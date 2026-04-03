@@ -73,7 +73,6 @@ export function Situations() {
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
           </button>
-          <div className="text-sm text-[#4b3425]">9:41</div>
         </div>
 
         <h1 className="text-2xl font-bold text-[#4b3425] mb-2">

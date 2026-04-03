@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { ArrowLeft, Dumbbell, Activity, Brain, Users, ChevronRight } from "lucide-react";
+import { ArrowLeft, Activity, Brain, Users, ChevronRight } from "lucide-react";
 import { trainingPackages } from "../data/trainingPackages";
 import { BottomNav } from "../components/BottomNav";
 
@@ -26,7 +26,6 @@ export function Training() {
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
           </button>
-          <div className="text-sm text-[#4b3425]">9:41</div>
         </div>
 
         <h1 className="text-3xl font-extrabold text-[#4b3425] mb-2">
@@ -38,56 +37,17 @@ export function Training() {
       </header>
 
       <main className="px-4 pb-6">
-        {/* 推荐训练顺序 */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Dumbbell className="w-5 h-5 text-[#4b3425]" />
-            <h2 className="text-xl font-bold text-[#4b3425]">推荐训练顺序</h2>
+        {/* 推荐训练顺序 - 简化版 */}
+        <div className="mb-6">
+          <h2 className="text-lg font-bold text-[#4B3425] mb-3">推荐路径</h2>
+          <div className="flex items-center gap-2 text-sm">
+            <span className="bg-[#9BB068] text-white px-3 py-1.5 rounded-full font-semibold">生物</span>
+            <span className="text-[rgba(31,22,15,0.48)]">→</span>
+            <span className="bg-[#926247] text-white px-3 py-1.5 rounded-full font-semibold">心理</span>
+            <span className="text-[rgba(31,22,15,0.48)]">→</span>
+            <span className="bg-[rgba(31,22,15,0.24)] text-white px-3 py-1.5 rounded-full font-semibold">社会</span>
           </div>
-          <p className="text-sm text-[rgba(31,22,15,0.64)] mb-4">
-            基于你的测评结果，系统为你推荐以下训练顺序
-          </p>
-          
-          <div className="space-y-3">
-            {/* 优先：生物维度 */}
-            <div className="bg-[#d4e7b8] rounded-2xl p-5 border-2 border-[#9bb068]">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#9bb068] text-white text-xs font-bold px-3 py-1 rounded-full">
-                  优先
-                </span>
-                <span className="font-bold text-[#4b3425]">生物维度·从基础开始</span>
-              </div>
-              <p className="text-sm text-[#4b3425] mb-3">
-                身心联结需要加强，建议从生物维度入门级开始
-              </p>
-            </div>
-
-            {/* 然后：心理维度 */}
-            <div className="bg-white rounded-2xl p-5 border-2 border-[rgba(31,22,15,0.12)]">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#926247] text-white text-xs font-bold px-3 py-1 rounded-full">
-                  然后
-                </span>
-                <span className="font-bold text-[#4b3425]">心理维度·配合第一个维度同步练习</span>
-              </div>
-              <p className="text-sm text-[rgba(31,22,15,0.64)]">
-                在生物维度取得进展后，可以同步训练心理维度
-              </p>
-            </div>
-
-            {/* 之后：社会维度 */}
-            <div className="bg-white rounded-2xl p-5 border-2 border-[rgba(31,22,15,0.12)]">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[rgba(31,22,15,0.24)] text-white text-xs font-bold px-3 py-1 rounded-full">
-                  之后
-                </span>
-                <span className="font-bold text-[#4b3425]">社会维度·视进度开始</span>
-              </div>
-              <p className="text-sm text-[rgba(31,22,15,0.64)]">
-                当前两个维度稳定后开始
-              </p>
-            </div>
-          </div>
+          <p className="text-xs text-[rgba(31,22,15,0.48)] mt-2">基于你的测评结果推荐</p>
         </div>
 
         {/* 生物维度训练包 */}

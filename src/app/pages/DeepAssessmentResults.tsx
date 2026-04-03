@@ -77,7 +77,6 @@ export function DeepAssessmentResults() {
           >
             跳过
           </button>
-          <div className="text-sm text-[#4b3425]">9:41</div>
         </div>
 
         <h1 className="text-3xl font-extrabold text-[#4b3425] mb-2">

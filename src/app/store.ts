@@ -286,8 +286,13 @@ export function useAssessment() {
     update({ assessmentData: result });
   }, [update]);
 
+  const clearAssessment = useCallback(() => {
+    update({ assessmentData: null });
+  }, [update]);
+
   return {
     assessmentData: store.assessmentData,
     saveAssessment,
+    clearAssessment,
   };
 }

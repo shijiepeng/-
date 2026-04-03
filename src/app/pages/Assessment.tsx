@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Activity, Brain, Users, ChevronRight } from "lucide-react";
+import { useAssessment } from "../store";
 
 const questions = [
   {
@@ -9,7 +10,7 @@ const questions = [
     options: [
       { text: "身体状态——睡不好、吃不规律、总是累", dimension: "biological", score: { biological: -10, psychological: 0, social: 0 } },
       { text: "脑子里的声音——焦虑、反复想、停不下来", dimension: "psychological", score: { biological: 0, psychological: -10, social: 0 } },
-      { text: "关系里的感觉——累、内耗、不知道怎么相处", dimension: "social", score: { biological: 0, psychological: 0, social: -10 } },
+      { text: "关系里的感觉——累，内耗、不知道怎么相处", dimension: "social", score: { biological: 0, psychological: 0, social: -10 } },
       { text: "说不清楚，好像哪里都有一点", dimension: "mixed", score: { biological: -5, psychological: -5, social: -5 } },
     ],
   },
@@ -34,13 +35,120 @@ const questions = [
   },
 ];
 
+const dimensionConfig = [
+  { key: "biological" as const, title: "生物维度", color: "#9bb068", icon: Activity },
+  { key: "psychological" as const, title: "心理维度", color: "#926247", icon: Brain },
+  { key: "social" as const, title: "社会维度", color: "#fe814b", icon: Users },
+];
+
 export function Assessment() {
   const navigate = useNavigate();
+  const { assessmentData, saveAssessment, clearAssessment } = useAssessment();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<any[]>([]);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [scaleValue, setScaleValue] = useState(5);
 
+  // 如果已完成过测评，显示报告列表
+  if (assessmentData) {
+    return (
+      <div className="min-h-screen bg-[#f7f4f2] pb-24">
+        <header className="bg-[#f7f4f2] px-4 pt-12 pb-4">
+          <h1 className="text-2xl font-extrabold text-[#4B3425]">测评报告</h1>
+          <p className="text-sm text-[rgba(31,22,15,0.64)] mt-1">基于3题快速测试</p>
+        </header>
+
+        <main className="px-4 pb-6">
+          {/* 快速测评报告 */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-bold text-[#4B3425]">快速测试</h2>
+              <button
+                onClick={() => {
+                  clearAssessment();
+                  setCurrentQuestion(0);
+                  setAnswers([]);
+                  setSelectedOption(null);
+                }}
+                className="text-sm text-[#9bb068] font-semibold"
+              >
+                重新测评
+              </button>
+            </div>
+            <div className="space-y-3">
+              {dimensionConfig.map((dim) => {
+                const Icon = dim.icon;
+                const score = assessmentData.scores?.[dim.key] ?? 50;
+                return (
+                  <div
+                    key={dim.key}
+                    className="bg-white rounded-2xl p-4 flex items-center gap-4"
+                  >
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: `${dim.color}20` }}
+                    >
+                      <Icon className="w-6 h-6" style={{ color: dim.color }} />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-bold text-[#4B3425]">{dim.title}</span>
+                        <span className="text-sm font-semibold text-[#4B3425]">{score}分</span>
+                      </div>
+                      <div className="h-2 bg-[rgba(31,22,15,0.08)] rounded-full overflow-hidden">
+                        <div
+                          className="h-full rounded-full"
+                          style={{ width: `${Math.min(100, score)}%`, backgroundColor: dim.color }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 深化测评入口 */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-bold text-[#4B3425]">深化测评</h2>
+              <button
+                onClick={() => navigate("/deep-assessment")}
+                className="text-sm text-[#9bb068] font-semibold"
+              >
+                重新测评
+              </button>
+            </div>
+            <button
+              onClick={() => navigate("/deep-assessment")}
+              className="w-full bg-white rounded-2xl p-4 flex items-center justify-between"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-[#d4e7b8] flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-[#9bb068]" />
+                </div>
+                <div className="text-left">
+                  <h3 className="font-bold text-[#4B3425]">深度分析</h3>
+                  <p className="text-sm text-[rgba(31,22,15,0.64)]">更全面的心理状态评估</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-[rgba(31,22,15,0.48)]" />
+            </button>
+          </div>
+
+          {/* 返回首页 */}
+          <button
+            onClick={() => navigate("/home")}
+            className="w-full py-3 text-center text-[rgba(31,22,15,0.64)] font-medium"
+          >
+            返回首页
+          </button>
+        </main>
+      </div>
+    );
+  }
+
+  // 未完成测评，显示测评题目
   const handleNext = () => {
     if (questions[currentQuestion].type === "scale") {
       setAnswers([...answers, scaleValue]);
@@ -71,7 +179,7 @@ export function Assessment() {
 
       // 第3题（情绪量表）影响所有维度
       const moodAnswer = answers[2] ?? scaleValue;
-      const moodAdjustment = (moodAnswer - 5) * 2; // 偏离中间值调整
+      const moodAdjustment = (moodAnswer - 5) * 2;
       bioScore += moodAdjustment;
       psyScore += moodAdjustment * 1.5;
       socScore += moodAdjustment;
@@ -81,7 +189,17 @@ export function Assessment() {
       psyScore = Math.max(10, Math.min(90, Math.round(psyScore)));
       socScore = Math.max(10, Math.min(90, Math.round(socScore)));
 
-      // Navigate to results with calculated scores
+      // 保存并导航到结果
+      saveAssessment({
+        type: "quick",
+        date: new Date().toISOString(),
+        scores: {
+          biological: bioScore,
+          psychological: psyScore,
+          social: socScore,
+        },
+      });
+
       navigate("/assessment-results", {
         state: {
           scores: {
@@ -109,7 +227,6 @@ export function Assessment() {
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
           </button>
-          <div className="text-sm text-[#4b3425]">9:41</div>
         </div>
 
         {/* Progress */}

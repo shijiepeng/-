@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router";
-import { Activity, Brain, Users } from "lucide-react";
+import { ArrowLeft, Activity, Brain, Users } from "lucide-react";
 
 interface Scores {
   biological: number;
@@ -61,15 +61,14 @@ export function AssessmentResults() {
   return (
     <div className="min-h-screen bg-[#f7f4f2]">
       {/* Header */}
-      <header className="bg-[#f7f4f2] px-4 pt-6 pb-4">
+      <header className="bg-[#f7f4f2] px-4 pt-12 pb-4">
         <div className="flex items-center justify-between mb-6">
           <button
-            onClick={() => navigate("/training")}
-            className="text-sm text-[#4b3425] font-semibold"
+            onClick={() => navigate("/home")}
+            className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
           >
-            跳过
+            <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
           </button>
-          <div className="text-sm text-[#4b3425]">9:41</div>
         </div>
 
         <h1 className="text-3xl font-extrabold text-[#4b3425] mb-2">

@@ -4,7 +4,6 @@ import {
   Brain,
   Users,
   Heart,
-  MessageCircle,
   TrendingUp,
   Star,
   SmilePlus,
@@ -17,11 +16,11 @@ import { useState } from "react";
 import { MoodChart } from "../components/MoodChart";
 
 const moods = [
-  { value: 0, label: "沮丧", emoji: "😢" },
-  { value: 1, label: "难过", emoji: "😔" },
-  { value: 2, label: "平静", emoji: "😐" },
-  { value: 3, label: "开心", emoji: "🙂" },
-  { value: 4, label: "非常开心", emoji: "😄" },
+  { value: 0, label: "很糟糕", emoji: "😢" },
+  { value: 1, label: "不太好", emoji: "😔" },
+  { value: 2, label: "还不错", emoji: "😐" },
+  { value: 3, label: "挺好的", emoji: "🙂" },
+  { value: 4, label: "非常棒", emoji: "😄" },
 ];
 
 const containerVariants = {
@@ -85,25 +84,19 @@ export function Home() {
   return (
     <div className="min-h-screen bg-[#f7f4f2] pb-24">
       {/* Header */}
-      <header className="bg-[#f7f4f2] px-4 pt-6 pb-4">
-        <div className="flex items-center justify-between mb-6">
-          <div className="text-sm text-[#4b3425]">9:41</div>
-          <button className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[rgba(31,22,15,0.24)]">
-            <MessageCircle className="w-5 h-5 text-[#4b3425]" />
-          </button>
-        </div>
-
+      <header className="px-4 pt-12 pb-6">
         <motion.h1
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-extrabold text-[#4b3425] mb-2"
+          className="text-[36px] font-extrabold text-[#4B3425] mb-2 tracking-tight"
+          style={{ fontFamily: "Urbanist, sans-serif" }}
         >
           心理健身房
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-base text-[rgba(31,22,15,0.64)]"
         >
@@ -271,7 +264,7 @@ export function Home() {
           <motion.div variants={itemVariants} className="space-y-3 mt-6">
             <button
               onClick={() => navigate("/training")}
-              className="w-full bg-[#d4e7b8] border-2 border-[#9bb068] rounded-2xl p-5 text-left hover:scale-[1.01] active:scale-[0.98] transition-all"
+              className="w-full bg-white border-2 border-[#9bb068] rounded-2xl p-5 text-left hover:scale-[1.01] active:scale-[0.98] transition-all"
             >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
@@ -299,7 +292,7 @@ export function Home() {
 
             <button
               onClick={() => navigate("/situations")}
-              className="w-full bg-white border-2 border-[rgba(31,22,15,0.12)] rounded-2xl p-5 text-left hover:scale-[1.01] hover:border-[#9bb068] active:scale-[0.98] transition-all"
+              className="w-full bg-white border-2 border-[#926247] rounded-2xl p-5 text-left hover:scale-[1.01] active:scale-[0.98] transition-all"
             >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-[#f7f4f2] rounded-full flex items-center justify-center">

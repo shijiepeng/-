@@ -277,48 +277,6 @@ export function MoodLog() {
             </span>
           ))}
         </div>
-
-        {/* AI Mood Predictions Card */}
-        <div className="bg-white rounded-3xl p-4 shadow-sm">
-          {/* Card Header */}
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-extrabold text-[#4B3425]">
-              AI 情绪预测
-            </h2>
-            <button className="flex items-center gap-1.5 px-2 py-1 rounded-full border border-[#4B3425] active:scale-95 transition-transform">
-              <Calendar className="w-4 h-4 text-[#4B3425]" />
-              <span className="text-sm font-semibold text-[#4B3425]">下周 7 天</span>
-              <ChevronDown className="w-3.5 h-3.5 text-[#4B3425]" />
-            </button>
-          </div>
-
-          {/* 7-Day Emoji Grid */}
-          <div className="flex gap-1.5">
-            {weekData.map((day, i) => {
-              const info = getMoodInfo(day.moodValue);
-              return (
-                <div
-                  key={i}
-                  className="flex-1 bg-[#F7F4F2] rounded-full py-2 px-1 flex flex-col items-center gap-1.5"
-                >
-                  {/* Emoji Face Circle */}
-                  <div
-                    className="w-7 h-7 rounded-full flex items-center justify-center shadow-sm"
-                    style={{ backgroundColor: info.color }}
-                  >
-                    {/* Simple face using CSS */}
-                    <FaceIcon mood={day.moodValue} />
-                  </div>
-
-                  {/* Day Label */}
-                  <span className="text-[11px] font-semibold text-[#4B3425] leading-none">
-                    {day.dayName}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </main>
 
       <BottomNav />

@@ -57,7 +57,6 @@ export function Profile() {
           >
             <ArrowLeft className="w-6 h-6 text-white" />
           </button>
-          <div className="text-sm text-white">9:41</div>
         </div>
 
         {/* User Info */}

@@ -78,7 +78,14 @@ export function LessonDetail() {
 
     // 延迟导航，让用户看到庆祝效果
     setTimeout(() => {
-      navigate(`/training/${trainingId}`);
+      if (!isLastLesson) {
+        // 前往下一课
+        const nextLesson = currentLevel.lessons[currentIndex + 1];
+        navigate(`/training/${trainingId}/level/${level}/lesson/${nextLesson.id}`);
+      } else {
+        // 最后一课返回课程列表
+        navigate(`/training/${trainingId}`);
+      }
     }, isNewComplete ? 1500 : 300);
   };
 
@@ -273,10 +280,7 @@ export function LessonDetail() {
                 已完成
               </>
             ) : isLastLesson ? (
-              <>
-                <CheckCircle2 className="w-5 h-5" />
-                完成本级别 🎉
-              </>
+              "返回列表"
             ) : (
               "完成并继续"
             )}
@@ -297,7 +301,6 @@ export function LessonDetail() {
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
           </button>
-          <div className="text-sm text-[#4b3425]">9:41</div>
         </div>
 
         <div className="flex items-center gap-2 mb-2">

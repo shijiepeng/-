@@ -185,22 +185,12 @@ export function FoodEmotionRecord1({ onComplete, onNext, isLastLesson, trainingC
       </div>
 
       <button
-        onClick={isLastLesson ? onComplete : onNext}
+        onClick={onComplete}
         className="w-full py-4 rounded-full font-semibold text-lg text-white"
         style={{ backgroundColor: trainingColor }}
       >
-        {isLastLesson ? "完成记录" : "继续"}
+        {isLastLesson ? "返回列表" : "完成并继续"}
       </button>
-
-      {!isLastLesson && (
-        <button
-          onClick={onComplete}
-          className="w-full py-4 rounded-full font-semibold text-lg border-2 text-[#4b3425] bg-white"
-          style={{ borderColor: trainingColor }}
-        >
-          返回课程列表
-        </button>
-      )}
     </div>
   );
 }
