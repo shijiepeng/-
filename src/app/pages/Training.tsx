@@ -1,14 +1,8 @@
 import { useNavigate } from "react-router";
-import { Activity, Brain, Users, ChevronRight } from "lucide-react";
+import { Activity, Brain, Users, ChevronRight, Apple, Moon, Heart, Dumbbell, RefreshCw, Sliders, VolumeX, Shield, Compass, UserCheck, Utensils } from "lucide-react";
 import { trainingPackages } from "../data/trainingPackages";
 import { BottomNav } from "../components/BottomNav";
 import { motion } from "motion/react";
-
-const iconMap: Record<string, any> = {
-  Activity,
-  Brain,
-  Users
-};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -20,7 +14,22 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+};
+
+// 根据训练包ID映射到合适的图标
+const trainingIcons: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+  "food-emotion": Utensils,
+  "sleep-training": Moon,
+  "body-awareness": Heart,
+  "exercise-emotion": Dumbbell,
+  "cognitive-reframe": RefreshCw,
+  "emotion-regulation": Sliders,
+  "stop-rumination": VolumeX,
+  "resilience-training": Shield,
+  "know-needs": Compass,
+  "find-support": UserCheck,
+  "relationship-care": Users,
 };
 
 export function Training() {
@@ -78,43 +87,45 @@ export function Training() {
               <span className="text-sm text-[rgba(31,22,15,0.48)]">身体是情绪的载体</span>
             </div>
             <div className="space-y-3">
-              {trainingList.filter(t => t.dimension === "生物维度").map((training) => (
-                <motion.button
-                  key={training.id}
-                  onClick={() => navigate(`/training/${training.id}`)}
-                  className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#9bb068] transition-all flex items-center gap-4 active:scale-[0.98]"
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${training.color}20` }}
+              {trainingList.filter(t => t.dimension === "生物维度").map((training) => {
+                const IconComponent = trainingIcons[training.id] || Activity;
+                return (
+                  <motion.button
+                    key={training.id}
+                    onClick={() => navigate(`/training/${training.id}`)}
+                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#9bb068] transition-all flex items-center gap-4 active:scale-[0.98]"
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {/* Icon placeholder */}
-                    <div className="w-7 h-7" style={{ color: training.color }}>●</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-[#4b3425] text-base mb-1">
-                      {training.title}
-                    </h3>
-                    <p className="text-sm text-[rgba(31,22,15,0.64)]">{training.description}</p>
-                  </div>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="flex-shrink-0"
-                  >
-                    <path
-                      d="M7 4l6 6-6 6"
-                      stroke="rgba(31,22,15,0.48)"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </motion.button>
-              ))}
+                    <div
+                      className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${training.color}20` }}
+                    >
+                      <IconComponent className="w-6 h-6" style={{ color: training.color }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-[#4b3425] text-base mb-1">
+                        {training.title}
+                      </h3>
+                      <p className="text-sm text-[rgba(31,22,15,0.64)]">{training.description}</p>
+                    </div>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      className="flex-shrink-0"
+                    >
+                      <path
+                        d="M7 4l6 6-6 6"
+                        stroke="rgba(31,22,15,0.48)"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -126,42 +137,45 @@ export function Training() {
               <span className="text-sm text-[rgba(31,22,15,0.48)]">思维方式决定情绪走向</span>
             </div>
             <div className="space-y-3">
-              {trainingList.filter(t => t.dimension === "心理维度").map((training) => (
-                <motion.button
-                  key={training.id}
-                  onClick={() => navigate(`/training/${training.id}`)}
-                  className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#926247] transition-all flex items-center gap-4 active:scale-[0.98]"
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${training.color}20` }}
+              {trainingList.filter(t => t.dimension === "心理维度").map((training) => {
+                const IconComponent = trainingIcons[training.id] || Brain;
+                return (
+                  <motion.button
+                    key={training.id}
+                    onClick={() => navigate(`/training/${training.id}`)}
+                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#926247] transition-all flex items-center gap-4 active:scale-[0.98]"
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-7 h-7" style={{ color: training.color }}>●</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-[#4b3425] text-base mb-1">
-                      {training.title}
-                    </h3>
-                    <p className="text-sm text-[rgba(31,22,15,0.64)]">{training.description}</p>
-                  </div>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="flex-shrink-0"
-                  >
-                    <path
-                      d="M7 4l6 6-6 6"
-                      stroke="rgba(31,22,15,0.48)"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </motion.button>
-              ))}
+                    <div
+                      className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${training.color}20` }}
+                    >
+                      <IconComponent className="w-6 h-6" style={{ color: training.color }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-[#4b3425] text-base mb-1">
+                        {training.title}
+                      </h3>
+                      <p className="text-sm text-[rgba(31,22,15,0.64)]">{training.description}</p>
+                    </div>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      className="flex-shrink-0"
+                    >
+                      <path
+                        d="M7 4l6 6-6 6"
+                        stroke="rgba(31,22,15,0.48)"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -173,42 +187,45 @@ export function Training() {
               <span className="text-sm text-[rgba(31,22,15,0.48)]">关系是情绪最大的变量</span>
             </div>
             <div className="space-y-3">
-              {trainingList.filter(t => t.dimension === "社会维度").map((training) => (
-                <motion.button
-                  key={training.id}
-                  onClick={() => navigate(`/training/${training.id}`)}
-                  className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#fe814b] transition-all flex items-center gap-4 active:scale-[0.98]"
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${training.color}20` }}
+              {trainingList.filter(t => t.dimension === "社会维度").map((training) => {
+                const IconComponent = trainingIcons[training.id] || Users;
+                return (
+                  <motion.button
+                    key={training.id}
+                    onClick={() => navigate(`/training/${training.id}`)}
+                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#fe814b] transition-all flex items-center gap-4 active:scale-[0.98]"
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-7 h-7" style={{ color: training.color }}>●</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-[#4b3425] text-base mb-1">
-                      {training.title}
-                    </h3>
-                    <p className="text-sm text-[rgba(31,22,15,0.64)]">{training.description}</p>
-                  </div>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="flex-shrink-0"
-                  >
-                    <path
-                      d="M7 4l6 6-6 6"
-                      stroke="rgba(31,22,15,0.48)"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </motion.button>
-              ))}
+                    <div
+                      className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${training.color}20` }}
+                    >
+                      <IconComponent className="w-6 h-6" style={{ color: training.color }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-[#4b3425] text-base mb-1">
+                        {training.title}
+                      </h3>
+                      <p className="text-sm text-[rgba(31,22,15,0.64)]">{training.description}</p>
+                    </div>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      className="flex-shrink-0"
+                    >
+                      <path
+                        d="M7 4l6 6-6 6"
+                        stroke="rgba(31,22,15,0.48)"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
 

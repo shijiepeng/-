@@ -11,9 +11,8 @@ import {
 } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useMoodRecords, useTrainingProgress } from "../store";
+import { WeekMood } from "../components/MoodChart";
 import { motion } from "motion/react";
-import { useState } from "react";
-import { MoodChart } from "../components/MoodChart";
 
 const moods = [
   { value: 0, label: "很糟糕", emoji: "😢" },
@@ -38,7 +37,7 @@ const itemVariants = {
 
 export function Home() {
   const navigate = useNavigate();
-  const { getStreakDays, getTodayRecord, getRecentRecords } = useMoodRecords();
+  const { getStreakDays, getTodayRecord, getRecentRecords, moodRecords } = useMoodRecords();
   const { favorites, trainingProgress, getLevelProgress } = useTrainingProgress();
 
   const streakDays = getStreakDays();
@@ -84,7 +83,18 @@ export function Home() {
   return (
     <div className="min-h-screen bg-[#f7f4f2] pb-24">
       {/* Header */}
-      <header className="px-4 pt-12 pb-6">
+      <header className="px-4 pt-12 pb-6 relative overflow-hidden">
+        {/* Background Icon */}
+        <motion.div
+          className="absolute top-8 right-10 pointer-events-none"
+          style={{ width: "192px", height: "192px", transform: "scaleX(-1)" }}
+          initial={{ opacity: 0, scaleX: 1 }}
+          animate={{ opacity: 1, scaleX: -1 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+        >
+          <img src="/image/icon.png" alt="" className="w-full h-full object-contain" />
+        </motion.div>
+
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -309,13 +319,13 @@ export function Home() {
           </motion.div>
 
           {/* 本周情绪趋势图（有记录时显示） */}
-          {recentRecords.length >= 2 && (
+          {moodRecords.length >= 1 && (
             <motion.div variants={itemVariants} className="mt-6">
               <div className="flex items-center gap-2 mb-4">
                 <Calendar className="w-5 h-5 text-[#926247]" />
                 <h2 className="text-lg font-bold text-[#4b3425]">本周情绪趋势</h2>
               </div>
-              <MoodChart />
+              <WeekMood moodRecords={moodRecords} />
             </motion.div>
           )}
 

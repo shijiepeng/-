@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router";
 import { Target, TrendingUp } from "lucide-react";
+import { useAssessment } from "../store";
 
 export function Welcome() {
   const navigate = useNavigate();
+  const { clearAssessment } = useAssessment();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#9bb068] to-[#f7f4f2] flex flex-col">
@@ -66,7 +68,10 @@ export function Welcome() {
 
           <div className="space-y-3">
             <button
-              onClick={() => navigate("/assessment")}
+              onClick={() => {
+                clearAssessment();
+                navigate("/assessment");
+              }}
               className="w-full bg-[#4b3425] text-white py-4 rounded-full font-semibold text-lg shadow-lg"
             >
               开始情绪体能测评

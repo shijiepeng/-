@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Activity, Brain, Users, ChevronRight } from "lucide-react";
+import { ArrowLeft, Activity, Brain, Users, ChevronRight } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useAssessment } from "../store";
 import { motion } from "motion/react";
@@ -248,6 +248,16 @@ export function Assessment() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
+        <div className="flex items-center justify-between mb-6">
+          <motion.button
+            onClick={() => navigate("/home")}
+            className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
+            whileTap={{ scale: 0.95 }}
+          >
+            <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
+          </motion.button>
+        </div>
+
         {/* Progress */}
         <div className="mb-6">
           <div className="flex justify-between text-xs text-[rgba(31,22,15,0.64)] mb-2">
@@ -347,7 +357,6 @@ export function Assessment() {
           {currentQuestion < questions.length - 1 ? "下一题" : "完成测评"}
         </button>
       </main>
-      <BottomNav />
     </div>
   );
 }
