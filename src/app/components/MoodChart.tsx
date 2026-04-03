@@ -134,10 +134,10 @@ export function WeekMood({ moodRecords }: { moodRecords: any[] }) {
             const cy = (4 - Math.min(4, Math.max(0, pt.y))) * 35 + 10;
             const info =
               type === "high"
-                ? { label: "愉悦", color: "#9BB068" }
+                ? { color: "#9BB068" }
                 : type === "low"
-                  ? { label: "低落", color: "#FE814B" }
-                  : { label: "平静", color: "#926247" };
+                  ? { color: "#FE814B" }
+                  : { color: "#926247" };
 
             return (
               <motion.g
@@ -146,11 +146,6 @@ export function WeekMood({ moodRecords }: { moodRecords: any[] }) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
               >
-                <rect x={cx - 24} y={cy - 32} width="48" height="20" rx="10" fill={info.color} />
-                <text x={cx} y={cy - 19} textAnchor="middle" fill="white" fontSize="11" fontWeight="700">
-                  {info.label}
-                </text>
-                <polygon points={`${cx - 4},${cy - 12} ${cx + 4},${cy - 12} ${cx},${cy - 8}`} fill={info.color} />
                 <circle cx={cx} cy={cy} r="7" fill={info.color} stroke="#F7F4F2" strokeWidth="3" />
                 <circle cx={cx} cy={cy} r="2.5" fill="white" />
               </motion.g>

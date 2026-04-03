@@ -8,11 +8,11 @@ import { motion } from "motion/react";
 const timeTabs = ["全部", "天", "周", "月", "年"];
 
 const moods = [
-  { value: 0, label: "很糟", color: "#FE814B", emoji: "😢" },
-  { value: 1, label: "不好", color: "#e67a5a", emoji: "😔" },
-  { value: 2, label: "一般", color: "#BDA193", emoji: "😐" },
-  { value: 3, label: "不错", color: "#FFCE5C", emoji: "🙂" },
-  { value: 4, label: "很好", color: "#9BB068", emoji: "😄" },
+  { value: 0, label: "很糟糕", color: "#FE814B", emoji: "😢" },
+  { value: 1, label: "不太好", color: "#e67a5a", emoji: "😔" },
+  { value: 2, label: "还不错", color: "#BDA193", emoji: "😐" },
+  { value: 3, label: "挺好的", color: "#FFCE5C", emoji: "🙂" },
+  { value: 4, label: "非常棒", color: "#9BB068", emoji: "😄" },
 ];
 
 const dayNames = ["一", "二", "三", "四", "五", "六", "日"];
@@ -196,7 +196,7 @@ export function MoodLog() {
 
         {/* Chart Section */}
         <motion.div
-          className="relative h-56 mb-2"
+          className="relative h-56 mb-12"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -248,10 +248,10 @@ export function MoodLog() {
               const cy = (4 - Math.min(4, Math.max(0, pt.y))) * 35 + 10;
               const info =
                 type === "high"
-                  ? { label: "愉悦", color: "#9BB068" }
+                  ? { color: "#9BB068" }
                   : type === "low"
-                    ? { label: "低落", color: "#FE814B" }
-                    : { label: "平静", color: "#926247" };
+                    ? { color: "#FE814B" }
+                    : { color: "#926247" };
 
               return (
                 <motion.g
@@ -260,30 +260,6 @@ export function MoodLog() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
                 >
-                  {/* Label bubble */}
-                  <rect
-                    x={cx - 24}
-                    y={cy - 32}
-                    width="48"
-                    height="20"
-                    rx="10"
-                    fill={info.color}
-                  />
-                  <text
-                    x={cx}
-                    y={cy - 19}
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="11"
-                    fontWeight="700"
-                  >
-                    {info.label}
-                  </text>
-                  {/* Triangle pointer */}
-                  <polygon
-                    points={`${cx - 4},${cy - 12} ${cx + 4},${cy - 12} ${cx},${cy - 8}`}
-                    fill={info.color}
-                  />
                   {/* Data dot */}
                   <circle cx={cx} cy={cy} r="7" fill={info.color} stroke="#F7F4F2" strokeWidth="3" />
                   <circle cx={cx} cy={cy} r="2.5" fill="white" />
@@ -295,7 +271,7 @@ export function MoodLog() {
 
         {/* X-Axis Day Labels */}
         <motion.div
-          className="flex justify-between px-1 mb-8"
+          className="flex justify-between px-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
