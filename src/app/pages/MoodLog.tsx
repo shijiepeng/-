@@ -3,6 +3,7 @@ import { ArrowLeft, BarChart3, ChevronDown, Calendar } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useMoodRecords } from "../store";
 import { useState, useMemo } from "react";
+import { motion } from "motion/react";
 
 const timeTabs = ["全部", "天", "周", "月", "年"];
 
@@ -25,7 +26,7 @@ function getMoodInfo(value: number) {
 export function MoodLog() {
   const navigate = useNavigate();
   const { getRecentRecords, moodRecords } = useMoodRecords();
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("全部");
 
   // 构建最近 7 天数据（含模拟预测）
   const weekData = useMemo(() => {
@@ -142,7 +143,12 @@ export function MoodLog() {
   return (
     <div className="min-h-screen bg-[#F7F4F2] pb-28">
       {/* Header */}
-      <header className="px-4 pt-12 pb-2">
+      <motion.header
+        className="px-4 pt-12 pb-2"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         {/* Back Button */}
         <button
           onClick={() => navigate("/home")}
@@ -150,9 +156,14 @@ export function MoodLog() {
         >
           <ArrowLeft className="w-6 h-6 text-[#4B3425]" />
         </button>
-      </header>
+      </motion.header>
 
-      <main className="px-4 pt-2">
+      <motion.main
+        className="px-4 pt-2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
         {/* Title Section */}
         <div className="flex items-start gap-4 mb-6">
           <div className="flex-1">
@@ -170,7 +181,12 @@ export function MoodLog() {
         </div>
 
         {/* Time Period Tabs */}
-        <div className="rounded-full border border-[rgba(31,22,15,0.64)] p-1 flex mb-8">
+        <motion.div
+          className="rounded-full border border-[rgba(31,22,15,0.64)] p-1 flex mb-8"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
           {timeTabs.map((tab) => (
             <button
               key={tab}
@@ -184,10 +200,15 @@ export function MoodLog() {
               {tab}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Chart Section */}
-        <div className="relative h-56 mb-2">
+        <motion.div
+          className="relative h-56 mb-2"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <svg
             viewBox="0 0 350 180"
             className="absolute inset-0 w-full h-full"
@@ -202,21 +223,27 @@ export function MoodLog() {
 
             {/* Gradient Fill */}
             {chartPath && (
-              <path
+              <motion.path
                 d={`${chartPath} L 300 170 L 0 170 Z`}
                 fill="url(#chartFill)"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               />
             )}
 
             {/* Line */}
             {chartPath && (
-              <path
+              <motion.path
                 d={chartPath}
                 fill="none"
                 stroke="#4B3425"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
               />
             )}
 
@@ -235,7 +262,12 @@ export function MoodLog() {
                     : { label: "平静", color: "#926247" };
 
               return (
-                <g key={index}>
+                <motion.g
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                >
                   {/* Label bubble */}
                   <rect
                     x={cx - 24}
@@ -263,21 +295,26 @@ export function MoodLog() {
                   {/* Data dot */}
                   <circle cx={cx} cy={cy} r="7" fill={info.color} stroke="#F7F4F2" strokeWidth="3" />
                   <circle cx={cx} cy={cy} r="2.5" fill="white" />
-                </g>
+                </motion.g>
               );
             })}
           </svg>
-        </div>
+        </motion.div>
 
         {/* X-Axis Day Labels */}
-        <div className="flex justify-between px-1 mb-8">
+        <motion.div
+          className="flex justify-between px-1 mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
           {dayNames.map((d) => (
             <span key={d} className="text-xs font-semibold text-[rgba(31,22,15,0.48)]">
               {d}
             </span>
           ))}
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
 
       <BottomNav />
     </div>

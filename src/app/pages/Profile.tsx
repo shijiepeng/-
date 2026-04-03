@@ -2,6 +2,20 @@ import { useNavigate } from "react-router";
 import { User, Settings, Award, Heart, TrendingUp, ChevronRight, Calendar, Target, Trash2 } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useMoodRecords, useTrainingProgress, useStore } from "../store";
+import { motion } from "motion/react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+};
 
 export function Profile() {
   const navigate = useNavigate();
@@ -49,9 +63,19 @@ export function Profile() {
   return (
     <div className="min-h-screen bg-[#f7f4f2] pb-24">
       {/* Header */}
-      <header className="bg-[#9bb068] px-4 pt-6 pb-8">
+      <motion.header
+        className="bg-[#9bb068] px-4 pt-6 pb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         {/* User Info */}
-        <div className="flex items-center gap-4">
+        <motion.div
+          className="flex items-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-lg">
             <User className="w-10 h-10 text-[#9bb068]" />
           </div>
@@ -61,12 +85,17 @@ export function Profile() {
               加入心理健身房 {joinDays} 天
             </p>
           </div>
-        </div>
-      </header>
+        </motion.div>
+      </motion.header>
 
-      <main className="px-4 py-6">
+      <motion.main
+        className="px-4 py-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+      >
         {/* Stats Cards */}
-        <div className="grid grid-cols-3 gap-3 mb-6 -mt-12">
+        <motion.div className="grid grid-cols-3 gap-3 mb-6 -mt-12" variants={itemVariants}>
           {stats.map((stat) => (
             <div
               key={stat.label}
@@ -86,10 +115,13 @@ export function Profile() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Level Badge */}
-        <div className="bg-gradient-to-br from-[#926247] to-[#7d5338] rounded-2xl p-5 mb-6">
+        <motion.div
+          className="bg-gradient-to-br from-[#926247] to-[#7d5338] rounded-2xl p-5 mb-6"
+          variants={itemVariants}
+        >
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
               <Award className="w-8 h-8 text-white" />
@@ -98,9 +130,11 @@ export function Profile() {
               <h3 className="text-white font-bold text-lg mb-1">{levelInfo.level}</h3>
               <div className="flex items-center gap-2">
                 <div className="flex-1 h-2 bg-white bg-opacity-30 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-white rounded-full transition-all duration-500"
-                    style={{ width: `${Math.min(100, levelInfo.progress)}%` }}
+                  <motion.div
+                    className="h-full bg-white rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${Math.min(100, levelInfo.progress)}%` }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                   />
                 </div>
                 <span className="text-white text-xs font-semibold">{Math.round(levelInfo.progress)}%</span>
@@ -110,15 +144,16 @@ export function Profile() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Menu Items */}
-        <div className="space-y-3">
+        <motion.div className="space-y-3" variants={itemVariants}>
           {menuItems.map((item) => (
-            <button
+            <motion.button
               key={item.id}
               onClick={() => navigate(item.route)}
               className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.08)] hover:border-[#9bb068] transition-all active:scale-[0.98]"
+              whileTap={{ scale: 0.98 }}
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#f7f4f2] flex items-center justify-center">
@@ -134,12 +169,12 @@ export function Profile() {
                 )}
                 <ChevronRight className="w-5 h-5 text-[rgba(31,22,15,0.48)]" />
               </div>
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Clear Data (Danger Zone) */}
-        <div className="mt-6">
+        <motion.div className="mt-6" variants={itemVariants}>
           <button
             onClick={handleClearData}
             className="w-full bg-white rounded-2xl p-4 border-2 border-[#d4183d]/30 hover:border-[#d4183d] transition-all active:scale-[0.98] flex items-center justify-center gap-2"
@@ -147,15 +182,15 @@ export function Profile() {
             <Trash2 className="w-4 h-4 text-[#d4183d]" />
             <span className="font-medium text-[#d4183d]">清除所有数据</span>
           </button>
-        </div>
+        </motion.div>
 
         {/* Version Info */}
-        <div className="mt-6 text-center">
+        <motion.div className="mt-6 text-center" variants={itemVariants}>
           <p className="text-xs text-[rgba(31,22,15,0.48)]">
             心理健身房 v1.0.0
           </p>
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
 
       <BottomNav />
     </div>
