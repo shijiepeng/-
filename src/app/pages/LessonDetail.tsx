@@ -9,6 +9,7 @@ import { FoodEmotionPractice1 } from "../components/lessons/FoodEmotionPractice1
 import { useTrainingProgress } from "../store";
 import { useState, useCallback } from "react";
 import confetti from "canvas-confetti";
+import { motion } from "motion/react";
 
 export function LessonDetail() {
   const navigate = useNavigate();
@@ -163,11 +164,18 @@ export function LessonDetail() {
     const config = typeConfig[lesson.type] || typeConfig["理论"];
 
     return (
-      <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         {/* 类型标签卡片 */}
-        <div
+        <motion.div
           className="rounded-2xl p-5 mb-6 border-2"
           style={{ backgroundColor: `${config.color}10`, borderColor: config.color }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           <div className="flex items-center gap-3">
             <span className="text-3xl">{config.icon}</span>
@@ -176,10 +184,15 @@ export function LessonDetail() {
               <p className="text-sm text-[rgba(31,22,15,0.64)]">{lesson.title}</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 内容区域 */}
-        <div className="bg-white rounded-2xl p-6 border-2 border-[rgba(31,22,15,0.12)] mb-6">
+        <motion.div
+          className="bg-white rounded-2xl p-6 border-2 border-[rgba(31,22,15,0.12)] mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
           <div className="prose prose-sm max-w-none">
             <p className="text-[#4b3425] leading-relaxed mb-4 text-base">
               这是 <span className="font-bold text-lg">{lesson.title}</span> 的课程内容。
@@ -258,11 +271,16 @@ export function LessonDetail() {
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
 
         {/* 完成按钮 */}
-        <div className="mt-6">
-          <button
+        <motion.div
+          className="mt-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          <motion.button
             onClick={handleComplete}
             disabled={isCompleted}
             className={`w-full py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition-all ${
@@ -273,6 +291,7 @@ export function LessonDetail() {
             style={{
               backgroundColor: isCompleted ? undefined : training.color,
             }}
+            whileTap={isCompleted ? {} : { scale: 0.98 }}
           >
             {isCompleted ? (
               <>
@@ -284,26 +303,37 @@ export function LessonDetail() {
             ) : (
               "完成并继续"
             )}
-          </button>
-        </div>
-      </>
+          </motion.button>
+        </motion.div>
+      </motion.div>
     );
   };
 
   return (
     <div className="min-h-screen bg-[#f7f4f2]">
       {/* Header */}
-      <header className="bg-white px-4 pt-6 pb-4 sticky top-0 z-10">
+      <motion.header
+        className="bg-white px-4 pt-6 pb-4 sticky top-0 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
         <div className="flex items-center justify-between mb-6">
-          <button
+          <motion.button
             onClick={() => navigate(`/training/${trainingId}`)}
             className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
+            whileTap={{ scale: 0.95 }}
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
-          </button>
+          </motion.button>
         </div>
 
-        <div className="flex items-center gap-2 mb-2">
+        <motion.div
+          className="flex items-center gap-2 mb-2"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
           <span
             className="text-xs px-2 py-1 rounded-full text-white font-semibold"
             style={{ backgroundColor: training.color }}
@@ -314,22 +344,37 @@ export function LessonDetail() {
             第{currentIndex + 1}/{currentLevel.lessons.length}课
           </span>
           {isCompleted && (
-            <span className="text-xs px-2 py-1 rounded-full bg-[#9bb068] text-white font-semibold">
+            <motion.span
+              className="text-xs px-2 py-1 rounded-full bg-[#9bb068] text-white font-semibold"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               已完成
-            </span>
+            </motion.span>
           )}
-        </div>
+        </motion.div>
 
-        <h1 className="text-2xl font-bold text-[#4b3425] mb-2">
+        <motion.h1
+          className="text-2xl font-bold text-[#4b3425] mb-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
           {lesson.title}
-        </h1>
+        </motion.h1>
 
-        <div className="flex items-center gap-3 text-sm text-[rgba(31,22,15,0.64)]">
+        <motion.div
+          className="flex items-center gap-3 text-sm text-[rgba(31,22,15,0.64)]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
           <span>{currentLevel.duration}</span>
           <span>·</span>
           <span>{lesson.type}</span>
-        </div>
-      </header>
+        </motion.div>
+      </motion.header>
 
       {/* Content */}
       <main className="px-4 py-6 pb-8">{renderLessonContent()}</main>
