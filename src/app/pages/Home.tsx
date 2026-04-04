@@ -238,7 +238,7 @@ export function Home() {
               {/* Card 1: 系统提升 */}
               <button
                 onClick={() => navigate("/training")}
-                className="flex-1 relative rounded-2xl p-5 pb-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform"
+                className="flex-1 relative rounded-2xl p-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[160px]"
                 style={{
                   background: "linear-gradient(135deg, #9bb068 0%, #7d9456 100%)",
                 }}
@@ -247,10 +247,10 @@ export function Home() {
                   <img src="/image/back1.png" alt="" className="w-full h-full object-contain" />
                 </div>
                 <div className="relative z-10">
-                  <h3 className="font-bold text-white mb-2 text-base leading-tight">
+                  <h3 className="font-bold text-white text-base leading-tight absolute top-6">
                     我想系统提升<br />情绪能力
                   </h3>
-                  <p className="text-white/80 text-sm">
+                  <p className="text-white/80 text-sm absolute bottom-6">
                     三大维度 × 11个训练包
                   </p>
                 </div>
@@ -264,7 +264,7 @@ export function Home() {
               {/* Card 2: 具体困扰 */}
               <button
                 onClick={() => navigate("/situations")}
-                className="flex-1 relative rounded-2xl p-5 pb-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform"
+                className="flex-1 relative rounded-2xl p-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[160px]"
                 style={{
                   background: "linear-gradient(135deg, #926247 0%, #7a5239 100%)",
                 }}
@@ -273,10 +273,10 @@ export function Home() {
                   <img src="/image/back2.png" alt="" className="w-full h-full object-contain" />
                 </div>
                 <div className="relative z-10">
-                  <h3 className="font-bold text-white mb-2 text-base leading-tight">
+                  <h3 className="font-bold text-white text-base leading-tight absolute top-6">
                     我现在有<br />具体困扰
                   </h3>
-                  <p className="text-white/80 text-sm">
+                  <p className="text-white/80 text-sm absolute bottom-6">
                     6种常见情境，针对性训练
                   </p>
                 </div>
