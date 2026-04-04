@@ -9,14 +9,27 @@ export function Welcome() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#9bb068] to-[#f7f4f2] flex flex-col">
       {/* Header */}
-      <header className="px-4 pt-12 pb-8 text-center">
-        <div className="w-24 h-24 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg overflow-hidden">
-          <img src="/image/icon.png" alt="icon" className="w-14 h-14 object-contain" />
+      <header className="relative px-4 pt-12 pb-8">
+        {/* icon.png as background on left */}
+        <img
+          src="/image/icon.png"
+          alt=""
+          className="absolute left-0 top-8 w-48 h-48 object-contain"
+        />
+
+        {/* White circle with mentalgym */}
+        <div className="relative z-10 w-24 h-24 bg-white rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+          <img src="/image/mentalgym.png" alt="心理健身房" className="w-20 h-20 object-contain" />
         </div>
-        <h1 className="text-4xl font-extrabold text-white mb-3">
-          心理健身房
-        </h1>
-        <p className="text-lg text-white/90">
+
+        {/* icon2.png on right of circle */}
+        <img
+          src="/image/icon2.png"
+          alt=""
+          className="absolute right-0 top-8 w-48 h-48 object-contain"
+        />
+
+        <p className="relative z-10 text-lg text-white/90 text-center">
           练出更好的自己，从情绪开始
         </p>
       </header>
@@ -55,7 +68,7 @@ export function Welcome() {
 
             <div className="flex gap-4 p-4 bg-[#f7f4f2] rounded-2xl">
               <div className="w-12 h-12 bg-[#fe814b]/20 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
-                <img src="/image/icon.png" alt="icon" className="w-6 h-6 object-contain" />
+                <img src="/image/icon2.png" alt="icon" className="w-6 h-6 object-contain" />
               </div>
               <div>
                 <h3 className="font-bold text-[#4b3425] mb-1">温柔陪伴</h3>

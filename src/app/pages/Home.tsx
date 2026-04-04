@@ -6,7 +6,6 @@ import {
   Heart,
   TrendingUp,
   Star,
-  SmilePlus,
   Calendar,
 } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
@@ -83,37 +82,40 @@ export function Home() {
   return (
     <div className="min-h-screen bg-[#f7f4f2] pb-24">
       {/* Header */}
-      <header className="px-4 pt-12 pb-6 relative overflow-hidden">
-        {/* Background Icon */}
-        <motion.div
-          className="absolute top-8 right-10 pointer-events-none"
-          style={{ width: "192px", height: "192px", transform: "scaleX(-1)" }}
-          initial={{ opacity: 0, scaleX: 1 }}
-          animate={{ opacity: 1, scaleX: -1 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
-        >
-          <img src="/image/icon.png" alt="" className="w-full h-full object-contain" />
-        </motion.div>
+      <header className="relative" style={{ height: "171.97px" }}>
+        {/* mentalgym on left */}
+        <motion.img
+          src="/image/mentalgym.png"
+          alt=""
+          className="absolute left-0 top-8"
+          style={{ width: "224px", height: "154px" }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        />
 
-        <motion.h1
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-[36px] font-extrabold text-[#4B3425] mb-2 tracking-tight"
-          style={{ fontFamily: "Urbanist, sans-serif" }}
-        >
-          心理健身房
-        </motion.h1>
-        <motion.p
+        {/* icon2.png at top right */}
+        <motion.img
+          src="/image/icon2.png"
+          alt=""
+          className="absolute right-4 top-12 object-contain"
+          style={{ width: "80px", height: "80px" }}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-base text-[rgba(31,22,15,0.64)]"
+        />
+
+        {/* Subtitle on right, below icon */}
+        <motion.div
+          className="absolute right-4 top-[120px] text-right text-base text-[rgba(31,22,15,0.64)]"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          练出更好的自己，
+          练出更好的自己
           <br />
           从情绪开始
-        </motion.p>
+        </motion.div>
       </header>
 
       <main className="px-4 pb-6">
@@ -176,8 +178,8 @@ export function Home() {
                 className="w-full bg-white rounded-2xl p-4 border-2 border-dashed border-[#9bb068]/50 flex items-center justify-between hover:border-[#9bb068] transition-all group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-[#d4e7b8] flex items-center justify-center group-hover:bg-[#9bb068] transition-colors">
-                    <SmilePlus className="w-5 h-5 text-[#9bb068] group-hover:text-white transition-colors" />
+                  <div className="w-11 h-11 rounded-full bg-[#d4e7b8] flex items-center justify-center overflow-hidden group-hover:bg-[#9bb068] transition-colors">
+                    <img src="/image/icon.png" alt="" className="w-7 h-7 object-contain" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-bold text-[#4b3425]">记录今日心情</h3>

@@ -28,9 +28,7 @@ export function BottomNav() {
                 onClick={() => navigate(item.route)}
                 className="flex flex-col items-center justify-center relative -mt-6"
               >
-                <div className="w-14 h-14 rounded-full bg-[#9bb068] flex items-center justify-center shadow-lg">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
+                <img src="/image/icon.png" alt="记录" className="w-18 h-18 object-contain" />
                 <span className="text-xs text-[#4b3425] mt-1 font-medium">
                   {item.label}
                 </span>

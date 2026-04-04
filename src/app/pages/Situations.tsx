@@ -37,7 +37,7 @@ export function Situations() {
       id: "stay-calm",
       title: "我想在慌乱时也能稳住",
       subtitle: "稳，是可以练出来的",
-      description: "适合容��慌乱、情绪波动大的时候",
+      description: "适合从容面对慌乱、情绪波动大的时候",
       icon: Zap,
       color: "#9bb068",
       bgColor: "#d4e7b8",
