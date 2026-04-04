@@ -8,11 +8,11 @@ import { motion } from "motion/react";
 const timeTabs = ["全部", "天", "周", "月", "年"];
 
 const moods = [
-  { value: 0, label: "很糟糕", color: "#FE814B", emoji: "😢" },
-  { value: 1, label: "不太好", color: "#e67a5a", emoji: "😔" },
-  { value: 2, label: "还不错", color: "#BDA193", emoji: "😐" },
-  { value: 3, label: "挺好的", color: "#FFCE5C", emoji: "🙂" },
-  { value: 4, label: "非常棒", color: "#9BB068", emoji: "😄" },
+  { value: 0, label: "很糟糕", color: "#FE814B" },
+  { value: 1, label: "不太好", color: "#e67a5a" },
+  { value: 2, label: "还不错", color: "#BDA193" },
+  { value: 3, label: "挺好的", color: "#FFCE5C" },
+  { value: 4, label: "非常棒", color: "#9BB068" },
 ];
 
 const dayNames = ["一", "二", "三", "四", "五", "六", "日"];

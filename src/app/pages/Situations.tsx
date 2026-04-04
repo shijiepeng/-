@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { ArrowLeft, Heart, CloudRain, UserX, Zap, Coffee, Flame } from "lucide-react";
+import { ArrowLeft, Heart, CloudRain, UserX, Zap, Coffee, Flame, Lightbulb } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 
 export function Situations() {
@@ -139,7 +139,7 @@ export function Situations() {
         {/* Info Card */}
         <div className="mt-6 bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b]">
           <p className="text-sm text-[#4b3425] leading-relaxed">
-            💡 <span className="font-semibold">提示：</span>
+            <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4" /> 提示：</span>
             这些情境训练是从三大维度（生物/心理/社会）中精选出来的组合方案，
             帮助你针对性地应对具体困扰。
           </p>

@@ -1,13 +1,13 @@
 import { Calendar, ChevronDown } from "lucide-react";
 
 const moods = [
-  { day: "Mon", emoji: "😊", color: "#ffce5c", name: "Happy" },
-  { day: "Tue", emoji: "😌", color: "#9bb068", name: "Happy" },
-  { day: "Wed", emoji: "😔", color: "#fe814b", name: "Sad" },
-  { day: "Thu", emoji: "😊", color: "#ffce5c", name: "Happy" },
-  { day: "Fri", emoji: "😐", color: "#bda193", name: "Neutral" },
-  { day: "Sat", emoji: "😐", color: "#bda193", name: "Neutral" },
-  { day: "Sun", emoji: "😟", color: "#fe814b", name: "Anxious" },
+  { day: "Mon", color: "#ffce5c", name: "Happy" },
+  { day: "Tue", color: "#9bb068", name: "Happy" },
+  { day: "Wed", color: "#fe814b", name: "Sad" },
+  { day: "Thu", color: "#ffce5c", name: "Happy" },
+  { day: "Fri", color: "#bda193", name: "Neutral" },
+  { day: "Sat", color: "#bda193", name: "Neutral" },
+  { day: "Sun", color: "#fe814b", name: "Anxious" },
 ];
 
 export function MoodPredictions() {
@@ -26,10 +26,10 @@ export function MoodPredictions() {
         {moods.map((mood, index) => (
           <div key={index} className="flex flex-col items-center gap-2">
             <div
-              className="w-8 h-8 rounded-full flex items-center justify-center text-lg shadow-lg"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-lg"
               style={{ backgroundColor: mood.color }}
             >
-              {mood.emoji}
+              {mood.name === "Happy" ? "H" : mood.name === "Sad" ? "S" : mood.name === "Neutral" ? "N" : "A"}
             </div>
             <span className="text-xs font-semibold text-[#4b3425]">{mood.day}</span>
           </div>

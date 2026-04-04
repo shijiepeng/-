@@ -5,11 +5,11 @@ import { useMoodRecords } from "../store";
 import { motion, AnimatePresence } from "motion/react";
 
 const moods = [
-  { id: 0, label: "很糟糕", emoji: "😢", color: "#8b7bb8", dotColor: "#e67a5a" },
-  { id: 1, label: "不太好", emoji: "😔", color: "#e67a5a", dotColor: "#fe814b" },
-  { id: 2, label: "还不错", emoji: "😐", color: "#a68968", dotColor: "#e8b84f" },
-  { id: 3, label: "挺好的", emoji: "🙂", color: "#e8b84f", dotColor: "#9bb068" },
-  { id: 4, label: "非常棒", emoji: "😄", color: "#9bb068", dotColor: "#9bb068" },
+  { id: 0, label: "很糟糕", color: "#8b7bb8", dotColor: "#e67a5a" },
+  { id: 1, label: "不太好", color: "#e67a5a", dotColor: "#fe814b" },
+  { id: 2, label: "还不错", color: "#a68968", dotColor: "#e8b84f" },
+  { id: 3, label: "挺好的", color: "#e8b84f", dotColor: "#9bb068" },
+  { id: 4, label: "非常棒", color: "#9bb068", dotColor: "#9bb068" },
 ];
 
 // 弧形滑块的 5 个点位置（百分比坐标，模拟 Figma 设计中的弧形排列）
@@ -62,8 +62,8 @@ export function MoodRecord() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
-            <div className="text-[140px] leading-none mb-4 text-center">
-              {recordedMood.emoji}
+            <div className="text-[140px] leading-none mb-4 text-center" style={{ color: recordedMood.dotColor }}>
+              {recordedMood.label}
             </div>
           </motion.div>
           <p className="text-[#4B3425] text-xl font-semibold mt-4 mb-2">
@@ -123,7 +123,7 @@ export function MoodRecord() {
               className="text-[160px] leading-none absolute"
               style={{ transformOrigin: "center bottom" }}
             >
-              {showSaved ? "✅" : currentMood.emoji}
+              {showSaved ? "✓" : currentMood.label}
             </motion.div>
           </AnimatePresence>
         </div>

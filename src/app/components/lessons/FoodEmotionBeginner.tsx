@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Lightbulb } from "lucide-react";
 
 interface FoodEmotionBeginnerProps {
   onComplete: () => void;
@@ -172,7 +172,7 @@ export function FoodEmotionBeginner({ onComplete, onNext, isLastLesson, training
 
           <div className="bg-[#fff9f0] rounded-xl p-4 border border-[#ffd89b]">
             <p className="text-sm text-[#4b3425] leading-relaxed">
-              <span className="font-semibold">💡 下一课预告</span>
+              <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4" /> 下一课预告</span>
               <br />
               我们将深入学习"真饿"和"假饿"的区别，以及如何在日常生活中识别它们。
             </p>

@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, BookOpen, ClipboardList, Dumbbell, PenTool, Target, BarChart3, Flag, Wrench, Map, Lightbulb } from "lucide-react";
 import { trainingPackages } from "../data/trainingPackages";
 import { FoodEmotionBeginner } from "../components/lessons/FoodEmotionBeginner";
 import { FoodEmotionTheory1 } from "../components/lessons/FoodEmotionTheory1";
@@ -149,16 +149,16 @@ export function LessonDetail() {
     }
 
     // 通用课程内容模板 - 根据 lesson.type 渲染不同样式
-    const typeConfig: Record<string, { title: string; icon: string; color: string }> = {
-      理论: { title: "理论学习", icon: "📖", color: "#4b7fb8" },
-      测评: { title: "自我测评", icon: "📋", color: "#926247" },
-      练习: { title: "实践练习", icon: "💪", color: "#9bb068" },
-      记录: { title: "记录反思", icon: "📝", color: "#fe814b" },
-      技巧: { title: "技巧学习", icon: "🎯", color: "#e8b84f" },
-      分析: { title: "分析总结", icon: "📊", color: "#6b5b95" },
-      总结: { title: "本节总结", icon: "🏁", color: "#4b3425" },
-      工具: { title: "工具介绍", icon: "🧰", color: "#7d6b5f" },
-      规划: { title: "规划制定", icon: "🗺️", color: "#4b7fb8" },
+    const typeConfig: Record<string, { title: string; icon: React.ComponentType<any>; color: string }> = {
+      理论: { title: "理论学习", icon: BookOpen, color: "#4b7fb8" },
+      测评: { title: "自我测评", icon: ClipboardList, color: "#926247" },
+      练习: { title: "实践练习", icon: Dumbbell, color: "#9bb068" },
+      记录: { title: "记录反思", icon: PenTool, color: "#fe814b" },
+      技巧: { title: "技巧学习", icon: Target, color: "#e8b84f" },
+      分析: { title: "分析总结", icon: BarChart3, color: "#6b5b95" },
+      总结: { title: "本节总结", icon: Flag, color: "#4b3425" },
+      工具: { title: "工具介绍", icon: Wrench, color: "#7d6b5f" },
+      规划: { title: "规划制定", icon: Map, color: "#4b7fb8" },
     };
 
     const config = typeConfig[lesson.type] || typeConfig["理论"];
@@ -178,7 +178,9 @@ export function LessonDetail() {
           transition={{ duration: 0.4, delay: 0.1 }}
         >
           <div className="flex items-center gap-3">
-            <span className="text-3xl">{config.icon}</span>
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${config.color}20` }}>
+              <config.icon className="w-6 h-6" style={{ color: config.color }} />
+            </div>
             <div>
               <h3 className="font-bold text-[#4b3425] text-lg">{config.title}</h3>
               <p className="text-sm text-[rgba(31,22,15,0.64)]">{lesson.title}</p>
@@ -229,8 +231,8 @@ export function LessonDetail() {
                   </ul>
                 </div>
                 <div className="rounded-xl p-4 bg-[rgba(155,176,104,0.08)] border border-[#9bb068]/30">
-                  <p className="text-sm text-[#4b3425] font-medium">
-                    💡 建议：找一个安静的环境，给自己 10-15 分钟时间来完成。
+                  <p className="text-sm text-[#4b3425] font-medium flex items-center gap-1">
+                    <Lightbulb className="w-4 h-4" /> 建议：找一个安静的环境，给自己 10-15 分钟时间来完成。
                   </p>
                 </div>
               </div>

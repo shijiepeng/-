@@ -100,7 +100,7 @@ export function Settings() {
         {/* Tips */}
         <div className="text-center py-4">
           <p className="text-xs text-[rgba(31,22,15,0.32)]">
-            每天记录心情，坚持训练，你会看到改变 💪
+            每天记录心情，坚持训练，你会看到改变
           </p>
         </div>
       </main>

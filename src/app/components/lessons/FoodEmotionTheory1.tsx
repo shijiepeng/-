@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Lightbulb } from "lucide-react";
 
 interface FoodEmotionTheory1Props {
   onComplete: () => void;
@@ -123,7 +123,7 @@ export function FoodEmotionTheory1({ onComplete, onNext, isLastLesson, trainingC
 
         <div className="bg-[#fff9f0] rounded-xl p-4 border border-[#ffd89b]">
           <p className="text-sm text-[#4b3425] leading-relaxed">
-            <span className="font-semibold">💡 下一课预告</span>
+            <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4" /> 下一课预告</span>
             <br />
             我们将学习如何区分"真饿"和"假饿"——两种饥饿的感觉是完全不同的。
           </p>

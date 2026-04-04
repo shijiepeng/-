@@ -37,11 +37,11 @@ const trainingIcons: Record<string, React.ComponentType<any>> = {
 };
 
 const moods = [
-  { value: 0, label: "很糟糕", emoji: "😢" },
-  { value: 1, label: "不太好", emoji: "😔" },
-  { value: 2, label: "还不错", emoji: "😐" },
-  { value: 3, label: "挺好的", emoji: "🙂" },
-  { value: 4, label: "非常棒", emoji: "😄" },
+  { value: 0, label: "很糟糕" },
+  { value: 1, label: "不太好" },
+  { value: 2, label: "还不错" },
+  { value: 3, label: "挺好的" },
+  { value: 4, label: "非常棒" },
 ];
 
 const containerVariants = {

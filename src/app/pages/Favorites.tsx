@@ -1,20 +1,34 @@
 import { useNavigate } from "react-router";
-import { ArrowLeft, Star } from "lucide-react";
+import { ArrowLeft, Star, Utensils, Moon, Heart, Dumbbell, RefreshCw, Sliders, VolumeX, Shield, Compass, UserCheck, Users, Activity } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useTrainingProgress } from "../store";
 
-const trainingInfo: Record<string, { title: string; dimension: string; color: string; emoji: string }> = {
-  "food-emotion": { title: "读懂你和食物的关系", dimension: "生物维度", color: "#9bb068", emoji: "🍽️" },
-  "sleep-training": { title: "夜晚好好睡", dimension: "生物维度", color: "#9bb068", emoji: "😴" },
-  "body-awareness": { title: "听懂身体说的话", dimension: "生物维度", color: "#9bb068", emoji: "🧘" },
-  "exercise-emotion": { title: "动一动，心也跟着松了", dimension: "生物维度", color: "#9bb068", emoji: "🏃" },
-  "cognitive-reframe": { title: "换一个角度想想看", dimension: "心理维度", color: "#926247", emoji: "💭" },
-  "emotion-regulation": { title: "找到适合自己的方式", dimension: "心理维度", color: "#926247", emoji: "⚖️" },
-  "stop-rumination": { title: "放下脑子里的那个声音", dimension: "心理维度", color: "#926247", emoji: "🔇" },
-  "resilience-training": { title: "下次会更从容", dimension: "心理维度", color: "#926247", emoji: "🛡️" },
-  "know-needs": { title: "知道自己需要什么", dimension: "社会维度", color: "#fe814b", emoji: "🎯" },
-  "find-support": { title: "找到可以依靠的人", dimension: "社会维度", color: "#fe814b", emoji: "🤝" },
-  "relationship-care": { title: "在关系里更自在", dimension: "社会维度", color: "#fe814b", emoji: "💕" },
+const trainingIcons: Record<string, React.ComponentType<any>> = {
+  "food-emotion": Utensils,
+  "sleep-training": Moon,
+  "body-awareness": Heart,
+  "exercise-emotion": Dumbbell,
+  "cognitive-reframe": RefreshCw,
+  "emotion-regulation": Sliders,
+  "stop-rumination": VolumeX,
+  "resilience-training": Shield,
+  "know-needs": Compass,
+  "find-support": UserCheck,
+  "relationship-care": Users,
+};
+
+const trainingInfo: Record<string, { title: string; dimension: string; color: string }> = {
+  "food-emotion": { title: "读懂你和食物的关系", dimension: "生物维度", color: "#9bb068" },
+  "sleep-training": { title: "夜晚好好睡", dimension: "生物维度", color: "#9bb068" },
+  "body-awareness": { title: "听懂身体说的话", dimension: "生物维度", color: "#9bb068" },
+  "exercise-emotion": { title: "动一动，心也跟着松了", dimension: "生物维度", color: "#9bb068" },
+  "cognitive-reframe": { title: "换一个角度想想看", dimension: "心理维度", color: "#926247" },
+  "emotion-regulation": { title: "找到适合自己的方式", dimension: "心理维度", color: "#926247" },
+  "stop-rumination": { title: "放下脑子里的那个声音", dimension: "心理维度", color: "#926247" },
+  "resilience-training": { title: "下次会更从容", dimension: "心理维度", color: "#926247" },
+  "know-needs": { title: "知道自己需要什么", dimension: "社会维度", color: "#fe814b" },
+  "find-support": { title: "找到可以依靠的人", dimension: "社会维度", color: "#fe814b" },
+  "relationship-care": { title: "在关系里更自在", dimension: "社会维度", color: "#fe814b" },
 };
 
 export function Favorites() {
@@ -22,7 +36,7 @@ export function Favorites() {
   const { favorites, trainingProgress, getLevelProgress, toggleFavorite } = useTrainingProgress();
 
   const favoriteTrainings = favorites.map((id) => {
-    const info = trainingInfo[id] || { title: id, dimension: "未知", color: "#9bb068", emoji: "❓" };
+    const info = trainingInfo[id] || { title: id, dimension: "未知", color: "#9bb068" };
     const progress = trainingProgress[id];
     let progressPercent = 0;
     if (progress) {
@@ -73,7 +87,10 @@ export function Favorites() {
                     className="w-12 h-12 rounded-xl flex items-center justify-center"
                     style={{ backgroundColor: `${training.color}20` }}
                   >
-                    <span className="text-2xl">{training.emoji}</span>
+                    {(() => {
+                      const IconComponent = trainingIcons[training.id] || Activity;
+                      return <IconComponent className="w-6 h-6" style={{ color: training.color }} />;
+                    })()}
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-[#4b3425] mb-0.5">
@@ -124,7 +141,7 @@ export function Favorites() {
           </div>
         ) : (
           <div className="text-center py-16">
-            <div className="text-6xl mb-4">⭐</div>
+            <Star className="w-16 h-16 text-[#fbbf24] mx-auto mb-4" fill="#fbbf24" />
             <h3 className="text-lg font-bold text-[#4b3425] mb-2">还没有收藏</h3>
             <p className="text-sm text-[rgba(31,22,15,0.48)] mb-6">
               在训练详情页点击收藏按钮来添加

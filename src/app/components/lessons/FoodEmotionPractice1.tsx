@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Lightbulb, Timer, MessageCircle, Footprints, Utensils } from "lucide-react";
 
 interface FoodEmotionPractice1Props {
   onComplete: () => void;
@@ -166,7 +167,7 @@ export function FoodEmotionPractice1({ onComplete, onNext, isLastLesson, trainin
 
                   <div className="bg-white rounded-lg p-3">
                     <p className="text-xs text-[rgba(31,22,15,0.64)]">
-                      💡 <span className="font-semibold">记住：</span>{strategy.tip}
+                      <Lightbulb className="w-3 h-3 inline mr-1" /> <span className="font-semibold">记住：</span>{strategy.tip}
                     </p>
                   </div>
                 </div>
@@ -198,19 +199,19 @@ export function FoodEmotionPractice1({ onComplete, onNext, isLastLesson, trainin
         </p>
         <div className="grid grid-cols-2 gap-2">
           <div className="bg-[#f7f4f2] rounded-lg p-3 text-center">
-            <div className="text-2xl mb-1">⏱️</div>
+            <Timer className="w-6 h-6 mx-auto mb-1" style={{ color: trainingColor }} />
             <div className="text-xs text-[#4b3425]">暂停10分钟</div>
           </div>
           <div className="bg-[#f7f4f2] rounded-lg p-3 text-center">
-            <div className="text-2xl mb-1">💭</div>
+            <MessageCircle className="w-6 h-6 mx-auto mb-1" style={{ color: trainingColor }} />
             <div className="text-xs text-[#4b3425]">说出感受</div>
           </div>
           <div className="bg-[#f7f4f2] rounded-lg p-3 text-center">
-            <div className="text-2xl mb-1">🚶</div>
+            <Footprints className="w-6 h-6 mx-auto mb-1" style={{ color: trainingColor }} />
             <div className="text-xs text-[#4b3425]">换个动作</div>
           </div>
           <div className="bg-[#f7f4f2] rounded-lg p-3 text-center">
-            <div className="text-2xl mb-1">🍽️</div>
+            <Utensils className="w-6 h-6 mx-auto mb-1" style={{ color: trainingColor }} />
             <div className="text-xs text-[#4b3425]">觉察地吃</div>
           </div>
         </div>
