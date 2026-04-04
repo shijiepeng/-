@@ -238,52 +238,56 @@ export function Home() {
               {/* Card 1: 系统提升 */}
               <button
                 onClick={() => navigate("/training")}
-                className="flex-1 relative rounded-2xl p-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[160px]"
+                className="flex-1 relative rounded-2xl p-5 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[140px]"
                 style={{
                   background: "linear-gradient(135deg, #9bb068 0%, #7d9456 100%)",
                 }}
               >
-                <div className="absolute top-0 left-0 w-28 h-28 opacity-20">
+                <div className="absolute top-0 left-0 w-24 h-24 opacity-20">
                   <img src="/image/back1.png" alt="" className="w-full h-full object-contain" />
                 </div>
-                <div className="relative z-10">
-                  <h3 className="font-bold text-white text-base leading-tight absolute top-6">
-                    我想系统提升<br />情绪能力
+                <div className="relative z-10 flex flex-col justify-between h-full">
+                  <h3 className="font-bold text-white text-base leading-tight">
+                    我想系统提升情绪能力
                   </h3>
-                  <p className="text-white/80 text-sm absolute bottom-6">
-                    三大维度 × 11个训练包
-                  </p>
-                </div>
-                <div className="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 bg-white/30 rounded-full flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <div className="flex items-end justify-between">
+                    <p className="text-white/80 text-xs">
+                      三大维度 × 11个训练包
+                    </p>
+                    <div className="w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">
+                      <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                        <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </button>
 
               {/* Card 2: 具体困扰 */}
               <button
                 onClick={() => navigate("/situations")}
-                className="flex-1 relative rounded-2xl p-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[160px]"
+                className="flex-1 relative rounded-2xl p-5 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[140px]"
                 style={{
                   background: "linear-gradient(135deg, #926247 0%, #7a5239 100%)",
                 }}
               >
-                <div className="absolute top-0 left-0 w-28 h-28 opacity-20">
+                <div className="absolute top-0 left-0 w-24 h-24 opacity-20">
                   <img src="/image/back2.png" alt="" className="w-full h-full object-contain" />
                 </div>
-                <div className="relative z-10">
-                  <h3 className="font-bold text-white text-base leading-tight absolute top-6">
-                    我现在有<br />具体困扰
+                <div className="relative z-10 flex flex-col justify-between h-full">
+                  <h3 className="font-bold text-white text-base leading-tight">
+                    我现在有具体困扰
                   </h3>
-                  <p className="text-white/80 text-sm absolute bottom-6">
-                    6种常见情境，针对性训练
-                  </p>
-                </div>
-                <div className="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 bg-white/30 rounded-full flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <div className="flex items-end justify-between">
+                    <p className="text-white/80 text-xs">
+                      6种常见情境，针对性训练
+                    </p>
+                    <div className="w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">
+                      <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                        <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </button>
             </div>
