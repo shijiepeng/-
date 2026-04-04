@@ -10,11 +10,11 @@ export function Welcome() {
     <div className="min-h-screen bg-gradient-to-b from-[#9bb068] to-[#f7f4f2] flex flex-col">
       {/* Header */}
       <header className="relative px-4 pt-12 pb-8">
-        {/* icon.png as background on left */}
+        {/* icon.png as background on left - only 60% visible */}
         <img
           src="/image/icon.png"
           alt=""
-          className="absolute left-0 top-8 w-48 h-48 object-contain"
+          className="absolute left-[-5rem] top-8 w-48 h-48 object-contain"
         />
 
         {/* White circle with mentalgym */}
@@ -22,11 +22,11 @@ export function Welcome() {
           <img src="/image/mentalgym.png" alt="心理健身房" className="w-20 h-20 object-contain" />
         </div>
 
-        {/* icon2.png on right of circle */}
+        {/* icon2.png on right of circle - only 60% visible */}
         <img
           src="/image/icon2.png"
           alt=""
-          className="absolute right-0 top-8 w-48 h-48 object-contain"
+          className="absolute right-[-5rem] top-8 w-48 h-48 object-contain"
         />
 
         <p className="relative z-10 text-lg text-white/90 text-center">
