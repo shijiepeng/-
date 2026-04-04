@@ -125,72 +125,44 @@ export function Home() {
           {/* Training Streak Card */}
           <motion.div variants={itemVariants}>
             <div
-              className="bg-gradient-to-br from-[#9bb068] to-[#7d9456] rounded-3xl p-6 mb-6 relative overflow-hidden cursor-pointer active:scale-[0.98] transition-transform"
+              className="bg-gradient-to-br from-[#9bb068] to-[#7d9456] rounded-2xl p-4 mb-4 relative overflow-hidden cursor-pointer active:scale-[0.98] transition-transform flex items-center gap-4"
               onClick={() => navigate("/mood-record")}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16" />
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-12 -mb-12" />
-
-              <div className="relative z-10">
-                <div className="flex items-center gap-2 mb-3">
-                  <TrendingUp className="w-5 h-5 text-white" />
-                  <span className="text-white text-sm font-semibold">
-                    {streakDays > 0 ? `已坚持 ${streakDays} 天` : "开始你的记录"}
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <TrendingUp className="w-4 h-4 text-white" />
+                  <span className="text-white text-xs font-semibold">
+                    {streakDays > 0 ? `已坚持 ${streakDays} 天` : "开始记录"}
                   </span>
                 </div>
-                <div className="flex items-baseline gap-2 mb-2">
+                <div className="flex items-baseline gap-1">
                   <motion.span
                     key={streakDays}
                     initial={{ scale: 1.3, color: "#fff" }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200 }}
-                    className="text-5xl font-extrabold text-white"
+                    className="text-3xl font-extrabold text-white"
                   >
                     {streakDays}
                   </motion.span>
-                  <span className="text-2xl font-bold text-white opacity-90">天</span>
+                  <span className="text-lg font-bold text-white opacity-90">天</span>
                 </div>
-
-                {/* 今日心情摘要或引导 */}
-                {todayRecord ? (
-                  <div className="flex items-center gap-2 mt-3 bg-white/20 rounded-full px-3 py-1.5 w-fit">
-                    <span className="text-sm text-white">
-                      今天心情：{moods[todayRecord.moodValue]?.label}
-                    </span>
-                  </div>
-                ) : (
-                  <p className="text-white text-sm opacity-90 mt-2">
-                    今天还没记录哦～ 点击这里记录心情
-                  </p>
-                )}
               </div>
+
+              {/* 今日心情移到右侧 */}
+              {todayRecord ? (
+                <div className="bg-white/20 rounded-full px-3 py-1.5">
+                  <span className="text-sm text-white">
+                    今天：{moods[todayRecord.moodValue]?.label}
+                  </span>
+                </div>
+              ) : (
+                <div className="bg-white/20 rounded-full px-3 py-1.5">
+                  <span className="text-sm text-white">点击记录</span>
+                </div>
+              )}
             </div>
           </motion.div>
-
-          {/* 今日心情快速记录（如果未记录） */}
-          {!todayRecord && (
-            <motion.div variants={itemVariants}>
-              <button
-                onClick={() => navigate("/mood-record")}
-                className="w-full bg-white rounded-2xl p-4 border-2 border-dashed border-[#9bb068]/50 flex items-center justify-between hover:border-[#9bb068] transition-all group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-[#d4e7b8] flex items-center justify-center overflow-hidden group-hover:bg-[#9bb068] transition-colors">
-                    <img src="/image/icon.png" alt="" className="w-7 h-7 object-contain" />
-                  </div>
-                  <div className="text-left">
-                    <h3 className="font-bold text-[#4b3425]">记录今日心情</h3>
-                    <p className="text-xs text-[rgba(31,22,15,0.48)]">
-                      花几秒钟记录此刻的感受
-                    </p>
-                  </div>
-                </div>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M7 4l6 6-6 6" stroke="#9bb068" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </motion.div>
-          )}
 
           {/* 收藏的训练 */}
           {favoriteTrainingsWithProgress.length > 0 && (
@@ -260,30 +232,30 @@ export function Home() {
             </motion.div>
           )}
 
-          {/* Quick Entry Cards */}
-          <motion.div variants={itemVariants} className="mt-6">
+          {/* Quick Entry Cards - Bigger */}
+          <motion.div variants={itemVariants} className="mt-4">
             <div className="flex gap-3">
               {/* Card 1: 系统提升 */}
               <button
                 onClick={() => navigate("/training")}
-                className="flex-1 relative rounded-2xl p-4 pb-5 overflow-hidden shadow-lg active:scale-[0.98] transition-transform"
+                className="flex-1 relative rounded-2xl p-5 pb-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform"
                 style={{
                   background: "linear-gradient(135deg, #9bb068 0%, #7d9456 100%)",
                 }}
               >
-                <div className="absolute top-0 left-0 w-20 h-20 opacity-30">
+                <div className="absolute top-0 left-0 w-28 h-28 opacity-20">
                   <img src="/image/back1.png" alt="" className="w-full h-full object-contain" />
                 </div>
                 <div className="relative z-10">
-                  <h3 className="font-bold text-white mb-1 text-sm leading-tight">
+                  <h3 className="font-bold text-white mb-2 text-base leading-tight">
                     我想系统提升<br />情绪能力
                   </h3>
-                  <p className="text-white/80 text-xs">
+                  <p className="text-white/80 text-sm">
                     三大维度 × 11个训练包
                   </p>
                 </div>
-                <div className="absolute bottom-3 right-3 w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">
-                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                <div className="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 bg-white/30 rounded-full flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
@@ -292,24 +264,24 @@ export function Home() {
               {/* Card 2: 具体困扰 */}
               <button
                 onClick={() => navigate("/situations")}
-                className="flex-1 relative rounded-2xl p-4 pb-5 overflow-hidden shadow-lg active:scale-[0.98] transition-transform"
+                className="flex-1 relative rounded-2xl p-5 pb-6 overflow-hidden shadow-xl active:scale-[0.98] transition-transform"
                 style={{
                   background: "linear-gradient(135deg, #926247 0%, #7a5239 100%)",
                 }}
               >
-                <div className="absolute top-0 left-0 w-20 h-20 opacity-30">
+                <div className="absolute top-0 left-0 w-28 h-28 opacity-20">
                   <img src="/image/back2.png" alt="" className="w-full h-full object-contain" />
                 </div>
                 <div className="relative z-10">
-                  <h3 className="font-bold text-white mb-1 text-sm leading-tight">
+                  <h3 className="font-bold text-white mb-2 text-base leading-tight">
                     我现在有<br />具体困扰
                   </h3>
-                  <p className="text-white/80 text-xs">
+                  <p className="text-white/80 text-sm">
                     6种常见情境，针对性训练
                   </p>
                 </div>
-                <div className="absolute bottom-3 right-3 w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">
-                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                <div className="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 bg-white/30 rounded-full flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
