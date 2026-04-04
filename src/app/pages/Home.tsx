@@ -243,11 +243,11 @@ export function Home() {
                   background: "linear-gradient(135deg, #9bb068 0%, #7d9456 100%)",
                 }}
               >
-                <div className="absolute top-0 left-0 w-24 h-24 opacity-20">
+                <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
                   <img src="/image/back1.png" alt="" className="w-full h-full object-contain" />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full">
-                  <h3 className="font-bold text-white text-base leading-tight">
+                  <h3 className="font-bold text-white text-xl leading-tight">
                     我想系统提升情绪能力
                   </h3>
                   <div className="flex items-end justify-between">
@@ -271,11 +271,11 @@ export function Home() {
                   background: "linear-gradient(135deg, #926247 0%, #7a5239 100%)",
                 }}
               >
-                <div className="absolute top-0 left-0 w-24 h-24 opacity-20">
+                <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
                   <img src="/image/back2.png" alt="" className="w-full h-full object-contain" />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full">
-                  <h3 className="font-bold text-white text-base leading-tight">
+                  <h3 className="font-bold text-white text-xl leading-tight">
                     我现在有具体困扰
                   </h3>
                   <div className="flex items-end justify-between">
