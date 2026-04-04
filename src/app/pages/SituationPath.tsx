@@ -6,7 +6,7 @@ const situationPaths = {
   "empty-heart": {
     title: "心里有个地方空了",
     description: "帮你慢慢把那个地方填回来，不是忘掉，是长出新的东西",
-    color: "#926247",
+    color: "#CFC3EF",
     modules: [
       { id: "stop-rumination", name: "放下脑子里的那个声音", reason: "先停止反复回想" },
       { id: "find-support", name: "找到可以依靠的人", reason: "建立支持系统" },
@@ -28,7 +28,7 @@ const situationPaths = {
   "tired-relationship": {
     title: "有些关系让我很累",
     description: "累不是你的错，但你可以练出一点不被消耗的能力",
-    color: "#fe814b",
+    color: "#FFC0C0",
     modules: [
       { id: "know-needs", name: "知道自己需要什么", reason: "明确自己的边界" },
       { id: "relationship-care", name: "在关系里更自在", reason: "学会保护自己" },
@@ -38,7 +38,7 @@ const situationPaths = {
   "stay-calm": {
     title: "我想在慌乱时也能稳住",
     description: "稳，是可以练出来的",
-    color: "#9bb068",
+    color: "#B5CF80",
     modules: [
       { id: "body-awareness", name: "听懂身体说的话", reason: "快速识别情绪信号" },
       { id: "emotion-regulation", name: "找到适合自己的方式", reason: "建立应急工具箱" },
@@ -124,7 +124,7 @@ export function SituationPath() {
               <div key={module.id} className="relative">
                 <button
                   onClick={() => navigate(`/training/${module.id}`)}
-                  className="w-full bg-white rounded-2xl p-5 text-left transition-all hover:scale-[1.01] border-2 border-[rgba(31,22,15,0.12)] hover:border-[#9bb068]"
+                  className="w-full bg-white rounded-2xl p-5 text-left transition-all hover:scale-[1.01] border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80]"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#f7f4f2] flex items-center justify-center border-2 border-white relative z-10">
@@ -162,7 +162,7 @@ export function SituationPath() {
         </div>
 
         {/* Tips */}
-        <div className="mt-6 bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b]">
+        <div className="mt-6 bg-[#FFDD5B]/10 rounded-2xl p-5 border-0">
           <p className="text-sm text-[#4b3425] leading-relaxed">
             <span className="font-semibold">训练建议：</span>
             按照推荐顺序完成训练，每个模块都有入门/进阶/强化三级。你可以根据自己的节奏调整进度。

@@ -97,8 +97,8 @@ export function WeekMood({ moodRecords }: { moodRecords: any[] }) {
         <svg viewBox="0 0 350 180" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#926247" stopOpacity="0.48" />
-              <stop offset="100%" stopColor="#926247" stopOpacity="0" />
+              <stop offset="0%" stopColor="#CFC3EF" stopOpacity="0.48" />
+              <stop offset="100%" stopColor="#CFC3EF" stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -137,7 +137,7 @@ export function WeekMood({ moodRecords }: { moodRecords: any[] }) {
                 ? { color: "#9BB068" }
                 : type === "low"
                   ? { color: "#FE814B" }
-                  : { color: "#926247" };
+                  : { color: "#CFC3EF" };
 
             return (
               <motion.g

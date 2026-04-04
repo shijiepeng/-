@@ -51,9 +51,9 @@ const questions = [
 ];
 
 const dimensionConfig = [
-  { key: "biological" as const, title: "生物维度", color: "#9bb068", icon: Activity },
-  { key: "psychological" as const, title: "心理维度", color: "#926247", icon: Brain },
-  { key: "social" as const, title: "社会维度", color: "#fe814b", icon: Users },
+  { key: "biological" as const, title: "生物维度", color: "#B5CF80", icon: Activity },
+  { key: "psychological" as const, title: "心理维度", color: "#CFC3EF", icon: Brain },
+  { key: "social" as const, title: "社会维度", color: "#FFC0C0", icon: Users },
 ];
 
 export function Assessment() {
@@ -95,7 +95,7 @@ export function Assessment() {
                   setAnswers([]);
                   setSelectedOption(null);
                 }}
-                className="text-sm text-[#9bb068] font-semibold"
+                className="text-sm text-[#B5CF80] font-semibold"
               >
                 重新测评
               </button>
@@ -143,7 +143,7 @@ export function Assessment() {
               <h2 className="text-lg font-bold text-[#4B3425]">深化测评</h2>
               <button
                 onClick={() => navigate("/deep-assessment")}
-                className="text-sm text-[#9bb068] font-semibold"
+                className="text-sm text-[#B5CF80] font-semibold"
               >
                 重新测评
               </button>
@@ -154,8 +154,8 @@ export function Assessment() {
               whileTap={{ scale: 0.98 }}
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-[#d4e7b8] flex items-center justify-center">
-                  <Brain className="w-6 h-6 text-[#9bb068]" />
+                <div className="w-12 h-12 rounded-full bg-[#e0ebc0] flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-[#B5CF80]" />
                 </div>
                 <div className="text-left">
                   <h3 className="font-bold text-[#4B3425]">深度分析</h3>
@@ -267,7 +267,7 @@ export function Assessment() {
           </div>
           <div className="h-2 bg-[rgba(31,22,15,0.12)] rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-[#9bb068]"
+              className="h-full bg-[#B5CF80]"
               initial={{ width: 0 }}
               animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
               transition={{ duration: 0.4, ease: "easeOut" }}
@@ -294,7 +294,7 @@ export function Assessment() {
                   onClick={() => setScaleValue(i)}
                   className={`w-12 h-12 rounded-lg font-semibold text-lg transition-all ${
                     scaleValue === i
-                      ? "bg-[#9bb068] text-white scale-110"
+                      ? "bg-[#B5CF80] text-white scale-110"
                       : "bg-white text-[#4b3425] border-2 border-[rgba(31,22,15,0.12)]"
                   }`}
                 >
@@ -319,7 +319,7 @@ export function Assessment() {
                 onClick={() => setSelectedOption(index)}
                 className={`w-full p-4 rounded-2xl text-left transition-all ${
                   selectedOption === index
-                    ? "bg-[#d4e7b8] border-2 border-[#9bb068]"
+                    ? "bg-[#e0ebc0] border-2 border-[#B5CF80]"
                     : "bg-white border-2 border-[rgba(31,22,15,0.12)]"
                 }`}
               >

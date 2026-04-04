@@ -121,7 +121,7 @@ export function FoodEmotionTheory1({ onComplete, onNext, isLastLesson, trainingC
           </p>
         </div>
 
-        <div className="bg-[#fff9f0] rounded-xl p-4 border border-[#ffd89b]">
+        <div className="bg-[#FFDD5B]/10 rounded-xl p-4 border-0">
           <p className="text-sm text-[#4b3425] leading-relaxed">
             <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4" /> 下一课预告</span>
             <br />

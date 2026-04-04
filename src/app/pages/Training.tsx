@@ -65,11 +65,11 @@ export function Training() {
         >
           <h2 className="text-lg font-bold text-[#4B3425] mb-3">推荐路径</h2>
           <div className="flex items-center gap-2 text-sm">
-            <span className="bg-[#9BB068] text-white px-3 py-1.5 rounded-full font-semibold">生物</span>
+            <span className="bg-[#B5CF80] text-white px-3 py-1.5 rounded-full font-semibold">生物</span>
             <span className="text-[rgba(31,22,15,0.48)]">→</span>
-            <span className="bg-[#926247] text-white px-3 py-1.5 rounded-full font-semibold">心理</span>
+            <span className="bg-[#CFC3EF] text-white px-3 py-1.5 rounded-full font-semibold">心理</span>
             <span className="text-[rgba(31,22,15,0.48)]">→</span>
-            <span className="bg-[rgba(31,22,15,0.24)] text-white px-3 py-1.5 rounded-full font-semibold">社会</span>
+            <span className="bg-[#FFC0C0] text-white px-3 py-1.5 rounded-full font-semibold">社会</span>
           </div>
           <p className="text-xs text-[rgba(31,22,15,0.48)] mt-2">基于你的测评结果推荐</p>
         </motion.div>
@@ -132,7 +132,7 @@ export function Training() {
           {/* 心理维度训练包 */}
           <motion.div className="mb-8" variants={itemVariants}>
             <div className="flex items-center gap-2 mb-4">
-              <Brain className="w-5 h-5 text-[#926247]" />
+              <Brain className="w-5 h-5 text-[#CFC3EF]" />
               <h2 className="text-xl font-bold text-[#4b3425]">心理维度</h2>
               <span className="text-sm text-[rgba(31,22,15,0.48)]">思维方式决定情绪走向</span>
             </div>
@@ -143,7 +143,7 @@ export function Training() {
                   <motion.button
                     key={training.id}
                     onClick={() => navigate(`/training/${training.id}`)}
-                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#926247] transition-all flex items-center gap-4 active:scale-[0.98]"
+                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#CFC3EF] transition-all flex items-center gap-4 active:scale-[0.98]"
                     whileTap={{ scale: 0.98 }}
                   >
                     <div
@@ -182,7 +182,7 @@ export function Training() {
           {/* 社会维度训练包 */}
           <motion.div className="mb-8" variants={itemVariants}>
             <div className="flex items-center gap-2 mb-4">
-              <Users className="w-5 h-5 text-[#fe814b]" />
+              <Users className="w-5 h-5 text-[#FFC0C0]" />
               <h2 className="text-xl font-bold text-[#4b3425]">社会维度</h2>
               <span className="text-sm text-[rgba(31,22,15,0.48)]">关系是情绪最大的变量</span>
             </div>
@@ -193,7 +193,7 @@ export function Training() {
                   <motion.button
                     key={training.id}
                     onClick={() => navigate(`/training/${training.id}`)}
-                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#fe814b] transition-all flex items-center gap-4 active:scale-[0.98]"
+                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#FFC0C0] transition-all flex items-center gap-4 active:scale-[0.98]"
                     whileTap={{ scale: 0.98 }}
                   >
                     <div

@@ -7,7 +7,7 @@ const assessmentSections = {
   biological: {
     title: "生物维度·身体和情绪的关系",
     icon: Activity,
-    color: "#9bb068",
+    color: "#B5CF80",
     description: "请根据最近两周的实际情况作答",
     questions: [
       { id: 1, text: "我睡醒后感觉精力充沛，状态不错", reverse: false },
@@ -23,7 +23,7 @@ const assessmentSections = {
   psychological: {
     title: "心理维度·思维和情绪的关系",
     icon: Brain,
-    color: "#926247",
+    color: "#CFC3EF",
     description: "请根据最近两周的实际情况作答",
     questions: [
       { id: 1, text: "当我心情不好时，我会努力从不同角度看这件事", reverse: false },
@@ -41,7 +41,7 @@ const assessmentSections = {
   social: {
     title: "社会维度·关系和情绪的关系",
     icon: Users,
-    color: "#fe814b",
+    color: "#FFC0C0",
     description: "请根据最近两周的实际情况作答",
     questions: [
       { id: 1, text: "当我有困难时，我知道可以找谁求助", reverse: false },

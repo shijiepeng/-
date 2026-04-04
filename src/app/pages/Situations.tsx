@@ -12,8 +12,8 @@ export function Situations() {
       subtitle: "帮你慢慢把那个地方填回来",
       description: "适合感到空虚、失落、没有目标的时刻",
       icon: Heart,
-      color: "#926247",
-      bgColor: "#e8d5ca",
+      color: "#CFC3EF",
+      bgColor: "#e8e2f5",
     },
     {
       id: "pressure",
@@ -21,8 +21,8 @@ export function Situations() {
       subtitle: "帮你在焦虑里还能稳稳地走",
       description: "适合压力大、焦虑、紧张的状态",
       icon: CloudRain,
-      color: "#4b7fb8",
-      bgColor: "#d4e7f5",
+      color: "#CFC3EF",
+      bgColor: "#e8e2f5",
     },
     {
       id: "tired-relationship",
@@ -30,7 +30,7 @@ export function Situations() {
       subtitle: "练出一点不被消耗的能力",
       description: "适合人际关系困扰、感到被消耗的情况",
       icon: UserX,
-      color: "#fe814b",
+      color: "#FFC0C0",
       bgColor: "#ffe4d6",
     },
     {
@@ -39,8 +39,8 @@ export function Situations() {
       subtitle: "稳，是可以练出来的",
       description: "适合从容面对慌乱、情绪波动大的时候",
       icon: Zap,
-      color: "#9bb068",
-      bgColor: "#d4e7b8",
+      color: "#B5CF80",
+      bgColor: "#e0ebc0",
     },
     {
       id: "no-energy",
@@ -48,8 +48,8 @@ export function Situations() {
       subtitle: "不用假装没事，先动一小步就好",
       description: "适合感到疲惫、缺乏动力的状态",
       icon: Coffee,
-      color: "#7d6b5f",
-      bgColor: "#e5ddd8",
+      color: "#B5CF80",
+      bgColor: "#e0ebc0",
     },
     {
       id: "food-complex",
@@ -57,8 +57,8 @@ export function Situations() {
       subtitle: "很多人都这样，不是意志力的问题",
       description: "适合情绪化进食、与食物关系困扰的情况",
       icon: Flame,
-      color: "#ff6b6b",
-      bgColor: "#ffe5e5",
+      color: "#B5CF80",
+      bgColor: "#e0ebc0",
     },
   ];
 
@@ -89,16 +89,15 @@ export function Situations() {
             <button
               key={situation.id}
               onClick={() => navigate(`/situation/${situation.id}`)}
-              className="w-full rounded-2xl p-5 text-left transition-all hover:scale-[1.02] border-2"
+              className="w-full rounded-2xl p-5 text-left transition-all hover:scale-[1.02] border-2 bg-white"
               style={{
-                backgroundColor: situation.bgColor,
                 borderColor: situation.color,
               }}
             >
               <div className="flex items-start gap-4">
                 <div
                   className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: "white" }}
+                  style={{ backgroundColor: `${situation.color}20` }}
                 >
                   <situation.icon
                     className="w-7 h-7"
@@ -137,9 +136,9 @@ export function Situations() {
         </div>
 
         {/* Info Card */}
-        <div className="mt-6 bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b]">
+        <div className="mt-6 bg-[#FFDD5B]/20 rounded-2xl p-5 border-0">
           <p className="text-sm text-[#4b3425] leading-relaxed">
-            <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4" /> 提示：</span>
+            <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4 text-[#FF816D]" /> 提示：</span>
             这些情境训练是从三大维度（生物/心理/社会）中精选出来的组合方案，
             帮助你针对性地应对具体困扰。
           </p>

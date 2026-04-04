@@ -170,7 +170,7 @@ export function FoodEmotionBeginner({ onComplete, onNext, isLastLesson, training
             </div>
           </div>
 
-          <div className="bg-[#fff9f0] rounded-xl p-4 border border-[#ffd89b]">
+          <div className="bg-[#FFDD5B]/10 rounded-xl p-4 border-0">
             <p className="text-sm text-[#4b3425] leading-relaxed">
               <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4" /> 下一课预告</span>
               <br />
@@ -216,7 +216,7 @@ export function FoodEmotionBeginner({ onComplete, onNext, isLastLesson, training
               onClick={() => handleAnswer(option.value)}
               className={`w-full p-4 rounded-xl text-left transition-all border-2 ${
                 answers[currentQuestion] === option.value
-                  ? 'border-[#9bb068] bg-[#9bb06810]'
+                  ? 'border-[#B5CF80] bg-[#B5CF8010]'
                   : 'border-[rgba(31,22,15,0.12)] bg-white'
               }`}
             >

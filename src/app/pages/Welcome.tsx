@@ -7,7 +7,7 @@ export function Welcome() {
   const { clearAssessment } = useAssessment();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#9bb068] to-[#f7f4f2] flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-[#B5CF80] to-[#f7f4f2] flex flex-col">
       {/* Header */}
       <header className="relative px-4 pt-12 pb-8">
         {/* icon.png as background on left - only 60% visible */}
@@ -43,8 +43,8 @@ export function Welcome() {
 
           <div className="space-y-4 mb-8">
             <div className="flex gap-4 p-4 bg-[#f7f4f2] rounded-2xl">
-              <div className="w-12 h-12 bg-[#9bb068]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <Target className="w-6 h-6 text-[#9bb068]" />
+              <div className="w-12 h-12 bg-[#B5CF80]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <Target className="w-6 h-6 text-[#B5CF80]" />
               </div>
               <div>
                 <h3 className="font-bold text-[#4b3425] mb-1">系统化训练</h3>
@@ -55,8 +55,8 @@ export function Welcome() {
             </div>
 
             <div className="flex gap-4 p-4 bg-[#f7f4f2] rounded-2xl">
-              <div className="w-12 h-12 bg-[#926247]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <TrendingUp className="w-6 h-6 text-[#926247]" />
+              <div className="w-12 h-12 bg-[#CFC3EF]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <TrendingUp className="w-6 h-6 text-[#CFC3EF]" />
               </div>
               <div>
                 <h3 className="font-bold text-[#4b3425] mb-1">可视化进步</h3>
@@ -67,7 +67,7 @@ export function Welcome() {
             </div>
 
             <div className="flex gap-4 p-4 bg-[#f7f4f2] rounded-2xl">
-              <div className="w-12 h-12 bg-[#fe814b]/20 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <div className="w-12 h-12 bg-[#FFC0C0]/20 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
                 <img src="/image/icon2.png" alt="icon" className="w-6 h-6 object-contain" />
               </div>
               <div>
@@ -96,7 +96,7 @@ export function Welcome() {
               稍后再说，先看看
             </button>
 
-            <div className="bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b] mt-4">
+            <div className="bg-[#FFDD5B]/10 rounded-2xl p-5 border-0 mt-4">
               <h3 className="font-bold text-[#4b3425] mb-2">开始之前</h3>
               <ul className="space-y-2 text-sm text-[#4b3425]">
                 <li>• 这里不治病，不替代心理咨询</li>

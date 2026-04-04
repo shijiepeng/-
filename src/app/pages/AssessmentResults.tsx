@@ -11,7 +11,7 @@ const dimensionConfig = [
   {
     key: "biological" as const,
     title: "生物维度",
-    color: "#9bb068",
+    color: "#B5CF80",
     descriptionTemplate: (score: number) => {
       if (score >= 60) return "身心联结良好，睡眠和身体状态不错，继续保持！";
       if (score >= 40) return "身心联结需要加强，睡眠和饮食是情绪的地基";
@@ -22,7 +22,7 @@ const dimensionConfig = [
   {
     key: "psychological" as const,
     title: "心理维度",
-    color: "#926247",
+    color: "#CFC3EF",
     descriptionTemplate: (score: number) => {
       if (score >= 60) return "思维模式灵活，情绪调节能力较强！";
       if (score >= 40) return "思维模式有改善空间，认知重构可以帮你停下来重新思考";
@@ -33,7 +33,7 @@ const dimensionConfig = [
   {
     key: "social" as const,
     title: "社会维度",
-    color: "#fe814b",
+    color: "#FFC0C0",
     descriptionTemplate: (score: number) => {
       if (score >= 60) return "社会支持系统健全，人际关系质量较高！";
       if (score >= 40) return "社会资源较好，可以强化人际情绪调节能力";
@@ -88,7 +88,7 @@ export function AssessmentResults() {
               className="bg-white rounded-2xl p-6 border-2 border-[rgba(31,22,15,0.12)]"
             >
               {index === 0 && (
-                <span className="inline-block px-3 py-1 bg-[#fe814b] text-white text-xs font-bold rounded-full mb-3">
+                <span className="inline-block px-3 py-1 bg-[#FFC0C0] text-white text-xs font-bold rounded-full mb-3">
                   建议优先
                 </span>
               )}
@@ -125,9 +125,9 @@ export function AssessmentResults() {
           <h2 className="text-xl font-bold text-[#4b3425] mb-4">推荐训练顺序</h2>
 
           <div className="space-y-3 mb-6">
-            <div className="bg-[#d4e7b8] rounded-2xl p-5 border-2 border-[#9bb068]">
+            <div className="bg-[#e0ebc0] rounded-2xl p-5 border-2 border-[#B5CF80]">
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#9bb068] text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span className="bg-[#B5CF80] text-white text-xs font-bold px-3 py-1 rounded-full">
                   优先
                 </span>
                 <span className="font-bold text-[#4b3425]">{dimensions[0].title}·入门级</span>
@@ -139,7 +139,7 @@ export function AssessmentResults() {
 
             <div className="bg-white rounded-2xl p-5 border-2 border-[rgba(31,22,15,0.12)]">
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#926247] text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span className="bg-[#CFC3EF] text-white text-xs font-bold px-3 py-1 rounded-full">
                   然后
                 </span>
                 <span className="font-bold text-[#4b3425]">{dimensions[1]?.title}·入门级</span>
@@ -176,7 +176,7 @@ export function AssessmentResults() {
         </div>
 
         {/* Info Card */}
-        <div className="bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b]">
+        <div className="bg-[#FFDD5B]/10 rounded-2xl p-5 border-0">
           <p className="text-sm text-[#4b3425] leading-relaxed">
             <span className="font-semibold">小提示：</span>
             心理健身房不治病，不替代心理咨询。我们帮你在日常生活中系统提升情绪调节能力——就像Keep帮你提升身体素质一样。

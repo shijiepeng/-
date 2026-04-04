@@ -71,20 +71,20 @@ export function Home() {
     // 从所有训练包数据中查找
     // 简单映射：使用已知 ID 的默认信息
     const trainingInfo: Record<string, { title: string; dimension: string; color: string }> = {
-      "food-emotion": { title: "读懂你和食物的关系", dimension: "生物维度", color: "#9bb068" },
-      "sleep-training": { title: "夜晚好好睡", dimension: "生物维度", color: "#9bb068" },
-      "body-awareness": { title: "听懂身体说的话", dimension: "生物维度", color: "#9bb068" },
-      "exercise-emotion": { title: "动一动，心也跟着松了", dimension: "生物维度", color: "#9bb068" },
-      "cognitive-reframe": { title: "换一个角度想想看", dimension: "心理维度", color: "#926247" },
-      "emotion-regulation": { title: "找到适合自己的方式", dimension: "心理维度", color: "#926247" },
-      "stop-rumination": { title: "放下脑子里的那个声音", dimension: "心理维度", color: "#926247" },
-      "resilience-training": { title: "下次会更从容", dimension: "心理维度", color: "#926247" },
-      "know-needs": { title: "知道自己需要什么", dimension: "社会维度", color: "#fe814b" },
-      "find-support": { title: "找到可以依靠的人", dimension: "社会维度", color: "#fe814b" },
-      "relationship-care": { title: "在关系里更自在", dimension: "社会维度", color: "#fe814b" },
+      "food-emotion": { title: "读懂你和食物的关系", dimension: "生物维度", color: "#B5CF80" },
+      "sleep-training": { title: "夜晚好好睡", dimension: "生物维度", color: "#B5CF80" },
+      "body-awareness": { title: "听懂身体说的话", dimension: "生物维度", color: "#B5CF80" },
+      "exercise-emotion": { title: "动一动，心也跟着松了", dimension: "生物维度", color: "#B5CF80" },
+      "cognitive-reframe": { title: "换一个角度想想看", dimension: "心理维度", color: "#CFC3EF" },
+      "emotion-regulation": { title: "找到适合自己的方式", dimension: "心理维度", color: "#CFC3EF" },
+      "stop-rumination": { title: "放下脑子里的那个声音", dimension: "心理维度", color: "#CFC3EF" },
+      "resilience-training": { title: "下次会更从容", dimension: "心理维度", color: "#CFC3EF" },
+      "know-needs": { title: "知道自己需要什么", dimension: "社会维度", color: "#FFC0C0" },
+      "find-support": { title: "找到可以依靠的人", dimension: "社会维度", color: "#FFC0C0" },
+      "relationship-care": { title: "在关系里更自在", dimension: "社会维度", color: "#FFC0C0" },
     };
 
-    const info = trainingInfo[trainingId] || { title: trainingId, dimension: "未知", color: "#9bb068" };
+    const info = trainingInfo[trainingId] || { title: trainingId, dimension: "未知", color: "#B5CF80" };
     const progress = trainingProgress[trainingId];
     let progressPercent = 0;
     if (progress) {
@@ -150,7 +150,7 @@ export function Home() {
           {/* Training Streak Card */}
           <motion.div variants={itemVariants}>
             <div
-              className="bg-gradient-to-br from-[#9bb068] to-[#7d9456] rounded-2xl p-4 mb-4 relative overflow-hidden cursor-pointer active:scale-[0.98] transition-transform flex items-center gap-4"
+              className="bg-gradient-to-br from-[#B5CF80] to-[#9ab86a] rounded-2xl p-4 mb-4 relative overflow-hidden cursor-pointer active:scale-[0.98] transition-transform flex items-center gap-4"
               onClick={() => navigate("/mood-record")}
             >
               <div className="flex-1">
@@ -202,7 +202,7 @@ export function Home() {
                   <button
                     key={training.id}
                     onClick={() => navigate(`/training/${training.id}`)}
-                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] hover:border-[#9bb068] transition-all text-left active:scale-[0.98]"
+                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80] transition-all text-left active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div
@@ -262,7 +262,7 @@ export function Home() {
                 onClick={() => navigate("/training")}
                 className="flex-1 relative rounded-2xl p-5 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[140px]"
                 style={{
-                  background: "linear-gradient(135deg, #9bb068 0%, #7d9456 100%)",
+                  background: "linear-gradient(135deg, #B5CF80 0%, #9ab86a 100%)",
                 }}
               >
                 <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
@@ -290,7 +290,7 @@ export function Home() {
                 onClick={() => navigate("/situations")}
                 className="flex-1 relative rounded-2xl p-5 overflow-hidden shadow-xl active:scale-[0.98] transition-transform min-h-[140px]"
                 style={{
-                  background: "linear-gradient(135deg, #926247 0%, #7a5239 100%)",
+                  background: "linear-gradient(135deg, #CFC3EF 0%, #b5a8d9 100%)",
                 }}
               >
                 <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
@@ -319,7 +319,7 @@ export function Home() {
           {moodRecords.length >= 1 && (
             <motion.div variants={itemVariants} className="mt-6">
               <div className="flex items-center gap-2 mb-4">
-                <Calendar className="w-5 h-5 text-[#926247]" />
+                <Calendar className="w-5 h-5 text-[#CFC3EF]" />
                 <h2 className="text-lg font-bold text-[#4b3425]">本周情绪趋势</h2>
               </div>
               <WeekMood moodRecords={moodRecords} />
@@ -328,7 +328,7 @@ export function Home() {
 
           {/* Info Card */}
           <motion.div variants={itemVariants}>
-            <div className="bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b] mt-6">
+            <div className="bg-[#FFDD5B]/10 rounded-2xl p-5 border-0 mt-6">
               <p className="text-sm text-[#4b3425] leading-relaxed">
                 <strong>关于心理健身房：</strong>
                 就像Keep帮你提升身体素质一样，我们帮助你在日常生活中系统提升情绪调节能力。

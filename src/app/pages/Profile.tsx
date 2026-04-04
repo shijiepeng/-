@@ -42,9 +42,9 @@ export function Profile() {
     : 1;
 
   const stats = [
-    { label: "连续记录", value: `${streakDays}天`, icon: TrendingUp, color: "#9bb068" },
-    { label: "完成课程", value: `${totalLessons}节`, icon: Award, color: "#926247" },
-    { label: "情绪记录", value: `${totalRecords}次`, icon: Calendar, color: "#fe814b" },
+    { label: "连续记录", value: `${streakDays}天`, icon: TrendingUp, color: "#B5CF80" },
+    { label: "完成课程", value: `${totalLessons}节`, icon: Award, color: "#CFC3EF" },
+    { label: "情绪记录", value: `${totalRecords}次`, icon: Calendar, color: "#FFC0C0" },
   ];
 
   const menuItems = [
@@ -64,7 +64,7 @@ export function Profile() {
     <div className="min-h-screen bg-[#f7f4f2] pb-24">
       {/* Header */}
       <motion.header
-        className="bg-[#9bb068] px-4 pt-6 pb-8"
+        className="bg-[#B5CF80] px-4 pt-6 pb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -77,7 +77,7 @@ export function Profile() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-lg">
-            <User className="w-10 h-10 text-[#9bb068]" />
+            <User className="w-10 h-10 text-[#B5CF80]" />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-white mb-1">训练者</h1>
@@ -119,7 +119,7 @@ export function Profile() {
 
         {/* Level Badge */}
         <motion.div
-          className="bg-gradient-to-br from-[#926247] to-[#7d5338] rounded-2xl p-5 mb-6"
+          className="bg-gradient-to-br from-[#CFC3EF] to-[#b5a8d9] rounded-2xl p-5 mb-6"
           variants={itemVariants}
         >
           <div className="flex items-center gap-4">
@@ -152,7 +152,7 @@ export function Profile() {
             <motion.button
               key={item.id}
               onClick={() => navigate(item.route)}
-              className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.08)] hover:border-[#9bb068] transition-all active:scale-[0.98]"
+              className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.08)] hover:border-[#B5CF80] transition-all active:scale-[0.98]"
               whileTap={{ scale: 0.98 }}
             >
               <div className="flex items-center gap-3">
@@ -163,7 +163,7 @@ export function Profile() {
                   {item.label}
                 </span>
                 {item.badge && (
-                  <span className="px-2 py-0.5 bg-[#9bb068] text-white text-xs font-bold rounded-full">
+                  <span className="px-2 py-0.5 bg-[#B5CF80] text-white text-xs font-bold rounded-full">
                     {item.badge}
                   </span>
                 )}

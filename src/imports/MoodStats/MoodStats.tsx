@@ -133,8 +133,8 @@ function Group() {
           </g>
           <defs>
             <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_665" x1="199" x2="199" y1="2" y2="196">
-              <stop stopColor="#926247" />
-              <stop offset="1" stopColor="#926247" stopOpacity="0" />
+              <stop stopColor="#CFC3EF" />
+              <stop offset="1" stopColor="#CFC3EF" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
@@ -145,7 +145,7 @@ function Group() {
 
 function Content() {
   return (
-    <div className="bg-[#9bb068] content-stretch flex items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[234px] shrink-0" data-name="Content">
+    <div className="bg-[#B5CF80] content-stretch flex items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[234px] shrink-0" data-name="Content">
       <p className="font-['Urbanist:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[12px] text-white tracking-[-0.12px] whitespace-nowrap">Happy</p>
     </div>
   );
@@ -168,7 +168,7 @@ function Frame8() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9bb068] relative rounded-[1234px] shrink-0 size-[16px]" data-name="Chart Indicator">
+      <div className="bg-[#B5CF80] relative rounded-[1234px] shrink-0 size-[16px]" data-name="Chart Indicator">
         <div aria-hidden="true" className="absolute border-4 border-[#f7f4f2] border-solid inset-[-4px] pointer-events-none rounded-[1238px]" />
         <div className="absolute left-[6px] size-[4px] top-[6px]" data-name="Vector">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 4">
@@ -182,7 +182,7 @@ function Frame8() {
 
 function Content1() {
   return (
-    <div className="bg-[#926247] content-stretch flex items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[234px] shrink-0" data-name="Content">
+    <div className="bg-[#CFC3EF] content-stretch flex items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[234px] shrink-0" data-name="Content">
       <p className="font-['Urbanist:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[12px] text-white tracking-[-0.12px] whitespace-nowrap">Neutral</p>
     </div>
   );
@@ -198,14 +198,14 @@ function Frame9() {
             <div className="h-[6px] relative w-[8px]" data-name="Vector">
               <div className="absolute inset-[40.14%_0_0_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 8 3.59167">
-                  <path d={svgPaths.p1841b070} fill="var(--fill-0, #926247)" id="Vector" />
+                  <path d={svgPaths.p1841b070} fill="var(--fill-0, #CFC3EF)" id="Vector" />
                 </svg>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-[#926247] relative rounded-[1234px] shrink-0 size-[16px]" data-name="Chart Indicator">
+      <div className="bg-[#CFC3EF] relative rounded-[1234px] shrink-0 size-[16px]" data-name="Chart Indicator">
         <div aria-hidden="true" className="absolute border-4 border-[#f7f4f2] border-solid inset-[-4px] pointer-events-none rounded-[1238px]" />
         <div className="absolute left-[6px] size-[4px] top-[6px]" data-name="Vector">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 4">
@@ -219,7 +219,7 @@ function Frame9() {
 
 function Content2() {
   return (
-    <div className="bg-[#fe814b] content-stretch flex items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[234px] shrink-0" data-name="Content">
+    <div className="bg-[#FFC0C0] content-stretch flex items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[234px] shrink-0" data-name="Content">
       <p className="font-['Urbanist:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[12px] text-white tracking-[-0.12px] whitespace-nowrap">Depressed</p>
     </div>
   );
@@ -242,7 +242,7 @@ function Frame10() {
           </div>
         </div>
       </div>
-      <div className="bg-[#fe814b] relative rounded-[1234px] shrink-0 size-[16px]" data-name="Chart Indicator">
+      <div className="bg-[#FFC0C0] relative rounded-[1234px] shrink-0 size-[16px]" data-name="Chart Indicator">
         <div aria-hidden="true" className="absolute border-4 border-[#f7f4f2] border-solid inset-[-4px] pointer-events-none rounded-[1238px]" />
         <div className="absolute left-[6px] size-[4px] top-[6px]" data-name="Vector">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 4">
@@ -391,7 +391,7 @@ function Content5() {
 function Content6() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0" data-name="Content">
-      <div className="bg-[#9bb068] relative rounded-[1234px] shadow-[0px_16.5px_4.65px_0px_rgba(155,176,104,0),0px_10.5px_4.2px_0px_rgba(155,176,104,0.01),0px_6px_3.6px_0px_rgba(155,176,104,0.05),0px_2.7px_2.7px_0px_rgba(155,176,104,0.09),0px_0.6px_1.5px_0px_rgba(155,176,104,0.1),0px_0px_0px_0px_rgba(155,176,104,0.1)] shrink-0 size-[24px]" data-name="Emotion">
+      <div className="bg-[#B5CF80] relative rounded-[1234px] shadow-[0px_16.5px_4.65px_0px_rgba(155,176,104,0),0px_10.5px_4.2px_0px_rgba(155,176,104,0.01),0px_6px_3.6px_0px_rgba(155,176,104,0.05),0px_2.7px_2.7px_0px_rgba(155,176,104,0.09),0px_0.6px_1.5px_0px_rgba(155,176,104,0.1),0px_0px_0px_0px_rgba(155,176,104,0.1)] shrink-0 size-[24px]" data-name="Emotion">
         <div className="absolute bottom-1/2 left-[58.33%] right-[16.67%] top-[33.33%]" data-name="Vector">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 6 4">
             <path clipRule="evenodd" d={svgPaths.p745d280} fill="var(--fill-0, #3D4A26)" fillRule="evenodd" id="Vector" />
@@ -416,7 +416,7 @@ function Content6() {
 function Content7() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0" data-name="Content">
-      <div className="bg-[#fe814b] relative rounded-[1234px] shadow-[0px_16.5px_4.65px_0px_rgba(155,176,104,0),0px_10.5px_4.2px_0px_rgba(155,176,104,0.01),0px_6px_3.6px_0px_rgba(155,176,104,0.05),0px_2.7px_2.7px_0px_rgba(155,176,104,0.09),0px_0.6px_1.5px_0px_rgba(155,176,104,0.1),0px_0px_0px_0px_rgba(155,176,104,0.1)] shrink-0 size-[24px]" data-name="Emotion">
+      <div className="bg-[#FFC0C0] relative rounded-[1234px] shadow-[0px_16.5px_4.65px_0px_rgba(155,176,104,0),0px_10.5px_4.2px_0px_rgba(155,176,104,0.01),0px_6px_3.6px_0px_rgba(155,176,104,0.05),0px_2.7px_2.7px_0px_rgba(155,176,104,0.09),0px_0.6px_1.5px_0px_rgba(155,176,104,0.1),0px_0px_0px_0px_rgba(155,176,104,0.1)] shrink-0 size-[24px]" data-name="Emotion">
         <div className="absolute inset-[54.17%_25.71%_22.06%_25.71%]" data-name="Vector">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 11.6598 5.70615">
             <path clipRule="evenodd" d={svgPaths.p1ca92b00} fill="var(--fill-0, #702901)" fillRule="evenodd" id="Vector" />
@@ -516,7 +516,7 @@ function Content10() {
 function Content11() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0" data-name="Content">
-      <div className="bg-[#fe814b] relative rounded-[1234px] shadow-[0px_16.5px_4.65px_0px_rgba(155,176,104,0),0px_10.5px_4.2px_0px_rgba(155,176,104,0.01),0px_6px_3.6px_0px_rgba(155,176,104,0.05),0px_2.7px_2.7px_0px_rgba(155,176,104,0.09),0px_0.6px_1.5px_0px_rgba(155,176,104,0.1),0px_0px_0px_0px_rgba(155,176,104,0.1)] shrink-0 size-[24px]" data-name="Emotion">
+      <div className="bg-[#FFC0C0] relative rounded-[1234px] shadow-[0px_16.5px_4.65px_0px_rgba(155,176,104,0),0px_10.5px_4.2px_0px_rgba(155,176,104,0.01),0px_6px_3.6px_0px_rgba(155,176,104,0.05),0px_2.7px_2.7px_0px_rgba(155,176,104,0.09),0px_0.6px_1.5px_0px_rgba(155,176,104,0.1),0px_0px_0px_0px_rgba(155,176,104,0.1)] shrink-0 size-[24px]" data-name="Emotion">
         <div className="absolute inset-[54.17%_25.71%_22.06%_25.71%]" data-name="Vector">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 11.6598 5.70615">
             <path clipRule="evenodd" d={svgPaths.p1ca92b00} fill="var(--fill-0, #702901)" fillRule="evenodd" id="Vector" />
@@ -825,7 +825,7 @@ export default function MoodStats() {
         <Button1 />
         <Button2 />
         <Button3 />
-        <div className="-translate-x-1/2 absolute bg-[#9bb068] content-stretch flex items-center justify-center left-[calc(50%+0.5px)] overflow-clip p-[16px] rounded-[1234px] shadow-[0px_16px_32px_0px_rgba(155,176,104,0.5)] size-[64px] top-[-32px]" data-name="Button">
+        <div className="-translate-x-1/2 absolute bg-[#B5CF80] content-stretch flex items-center justify-center left-[calc(50%+0.5px)] overflow-clip p-[16px] rounded-[1234px] shadow-[0px_16px_32px_0px_rgba(155,176,104,0.5)] size-[64px] top-[-32px]" data-name="Button">
           <div className="relative shrink-0 size-[24px]" data-name="Monotone add">
             <div className="absolute inset-[16.67%]" data-name="Vector">
               <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 16">

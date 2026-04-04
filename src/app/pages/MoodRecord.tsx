@@ -8,8 +8,8 @@ const moods = [
   { id: 0, label: "很糟糕", color: "#8b7bb8", dotColor: "#e67a5a" },
   { id: 1, label: "不太好", color: "#e67a5a", dotColor: "#fe814b" },
   { id: 2, label: "还不错", color: "#a68968", dotColor: "#e8b84f" },
-  { id: 3, label: "挺好的", color: "#e8b84f", dotColor: "#9bb068" },
-  { id: 4, label: "非常棒", color: "#9bb068", dotColor: "#9bb068" },
+  { id: 3, label: "挺好的", color: "#e8b84f", dotColor: "#B5CF80" },
+  { id: 4, label: "非常棒", color: "#B5CF80", dotColor: "#B5CF80" },
 ];
 
 // 弧形滑块的 5 个点位置（百分比坐标，模拟 Figma 设计中的弧形排列）
@@ -241,7 +241,7 @@ export function MoodRecord() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="w-full max-w-sm bg-white text-[#9bb068] text-lg font-bold py-4 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto"
+            className="w-full max-w-sm bg-white text-[#B5CF80] text-lg font-bold py-4 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto"
           >
             <span>已保存</span>
             <ArrowRight className="w-5 h-5" />

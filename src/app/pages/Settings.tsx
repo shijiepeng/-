@@ -40,8 +40,8 @@ export function Settings() {
                 alert("心理健身房 v1.0.0\n基于生物-心理-社会模型的情绪训练应用")
               }
             >
-              <div className="w-10 h-10 rounded-full bg-[#d4e7b8] flex items-center justify-center flex-shrink-0">
-                <Info className="w-5 h-5 text-[#9bb068]" />
+              <div className="w-10 h-10 rounded-full bg-[#e0ebc0] flex items-center justify-center flex-shrink-0">
+                <Info className="w-5 h-5 text-[#B5CF80]" />
               </div>
               <div className="flex-1">
                 <span className="font-semibold text-[#4b3425]">版本信息</span>
@@ -50,8 +50,8 @@ export function Settings() {
             </button>
 
             <div className="p-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#fff9f0] flex items-center justify-center flex-shrink-0">
-                <Shield className="w-5 h-5 text-[#fe814b]" />
+              <div className="w-10 h-10 rounded-full bg-[#FFDD5B]/10 flex items-center justify-center flex-shrink-0">
+                <Shield className="w-5 h-5 text-[#FFC0C0]" />
               </div>
               <div className="flex-1">
                 <span className="font-semibold text-[#4b3425]">隐私说明</span>
@@ -87,7 +87,7 @@ export function Settings() {
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b]">
+        <div className="bg-[#FFDD5B]/10 rounded-2xl p-5 border-0">
           <h3 className="font-bold text-[#4b3425] mb-2 text-sm">免责声明</h3>
           <ul className="text-xs text-[rgba(31,22,15,0.64)] space-y-1.5 leading-relaxed">
             <li>· 心理健身房不提供医疗诊断或治疗服务</li>

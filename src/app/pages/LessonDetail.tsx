@@ -49,7 +49,7 @@ export function LessonDetail() {
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ["#9bb068", "#926247", "#fe814b", "#4b3425", "#e8b84f"],
+      colors: ["#B5CF80", "#CFC3EF", "#FFC0C0", "#4b3425", "#e8b84f"],
     });
 
     // 如果是最后节课，额外放一次
@@ -59,7 +59,7 @@ export function LessonDetail() {
           particleCount: 150,
           spread: 100,
           origin: { y: 0.5 },
-          colors: ["#9bb068", "#ffd700", "#ff6b6b"],
+          colors: ["#B5CF80", "#CFC3EF", "#FFC0C0"],
         });
       }, 400);
     }
@@ -151,9 +151,9 @@ export function LessonDetail() {
     // 通用课程内容模板 - 根据 lesson.type 渲染不同样式
     const typeConfig: Record<string, { title: string; icon: React.ComponentType<any>; color: string }> = {
       理论: { title: "理论学习", icon: BookOpen, color: "#4b7fb8" },
-      测评: { title: "自我测评", icon: ClipboardList, color: "#926247" },
-      练习: { title: "实践练习", icon: Dumbbell, color: "#9bb068" },
-      记录: { title: "记录反思", icon: PenTool, color: "#fe814b" },
+      测评: { title: "自我测评", icon: ClipboardList, color: "#CFC3EF" },
+      练习: { title: "实践练习", icon: Dumbbell, color: "#B5CF80" },
+      记录: { title: "记录反思", icon: PenTool, color: "#FFC0C0" },
       技巧: { title: "技巧学习", icon: Target, color: "#e8b84f" },
       分析: { title: "分析总结", icon: BarChart3, color: "#6b5b95" },
       总结: { title: "本节总结", icon: Flag, color: "#4b3425" },
@@ -210,7 +210,7 @@ export function LessonDetail() {
                     理解这些概念是后续实践练习的重要基础。
                   </p>
                 </div>
-                <div className="bg-[#fff9f0] rounded-xl p-4 border border-[#ffd89b]">
+                <div className="bg-[#FFDD5B]/10 rounded-xl p-4 border-0">
                   <h4 className="font-bold text-[#4b3425] mb-2">为什么重要？</h4>
                   <p className="text-sm text-[rgba(31,22,15,0.72)] leading-relaxed">
                     {training.description.slice(0, 60)}...
@@ -230,7 +230,7 @@ export function LessonDetail() {
                     <li>· 不需要追求完美，尝试就好</li>
                   </ul>
                 </div>
-                <div className="rounded-xl p-4 bg-[rgba(155,176,104,0.08)] border border-[#9bb068]/30">
+                <div className="rounded-xl p-4 bg-[rgba(181,207,128,0.08)] border border-[#B5CF80]/30">
                   <p className="text-sm text-[#4b3425] font-medium flex items-center gap-1">
                     <Lightbulb className="w-4 h-4" /> 建议：找一个安静的环境，给自己 10-15 分钟时间来完成。
                   </p>
@@ -347,7 +347,7 @@ export function LessonDetail() {
           </span>
           {isCompleted && (
             <motion.span
-              className="text-xs px-2 py-1 rounded-full bg-[#9bb068] text-white font-semibold"
+              className="text-xs px-2 py-1 rounded-full bg-[#B5CF80] text-white font-semibold"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 300 }}

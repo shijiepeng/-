@@ -3,7 +3,7 @@
 export const trainingContent = {
   "sleep-training": {
     title: "夜晚好好睡",
-    color: "#9bb068",
+    color: "#B5CF80",
     level: "入门",
     dimension: "生物维度",
     duration: "5天计划",
@@ -120,7 +120,7 @@ export const trainingContent = {
   },
   "body-awareness": {
     title: "听懂身体说的话",
-    color: "#9bb068",
+    color: "#B5CF80",
     level: "入门",
     dimension: "生物维度",
     duration: "4天计划",
@@ -202,7 +202,7 @@ export const trainingContent = {
   },
   "food-emotion": {
     title: "读懂你和食物的关系",
-    color: "#9bb068",
+    color: "#B5CF80",
     level: "入门",
     dimension: "生物维度",
     duration: "5天计划",
@@ -300,7 +300,7 @@ export const trainingContent = {
   },
   "cognitive-reframe": {
     title: "换一个角度想想看",
-    color: "#926247",
+    color: "#CFC3EF",
     level: "进阶",
     dimension: "心理维度",
     duration: "6天计划",
@@ -426,7 +426,7 @@ export const trainingContent = {
   },
   "stop-rumination": {
     title: "让大脑停下来",
-    color: "#926247",
+    color: "#CFC3EF",
     level: "进阶",
     dimension: "心理维度",
     duration: "5天计划",
@@ -546,7 +546,7 @@ export const trainingContent = {
   },
   "emotion-regulation": {
     title: "找到适合自己的方式",
-    color: "#926247",
+    color: "#CFC3EF",
     level: "进阶",
     dimension: "心理维度",
     duration: "7天计划",
@@ -677,7 +677,7 @@ export const trainingContent = {
   },
   "know-needs": {
     title: "知道自己需要什么",
-    color: "#fe814b",
+    color: "#FFC0C0",
     level: "进阶",
     dimension: "社会维度",
     duration: "5天计划",
@@ -786,7 +786,7 @@ export const trainingContent = {
   },
   "relationship-care": {
     title: "在关系中照顾好自己",
-    color: "#fe814b",
+    color: "#FFC0C0",
     level: "进阶",
     dimension: "社会维度",
     duration: "6天计划",

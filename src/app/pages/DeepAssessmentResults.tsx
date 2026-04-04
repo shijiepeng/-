@@ -12,7 +12,7 @@ const dimensions = [
     id: "biological",
     title: "生物维度",
     icon: Activity,
-    color: "#9bb068",
+    color: "#B5CF80",
     maxScore: 40,
     ranges: [
       { min: 32, max: 40, level: "良好", description: "身心联结良好，基础稳固", recommendation: "可直接进入进阶级" },
@@ -24,7 +24,7 @@ const dimensions = [
     id: "psychological",
     title: "心理维度",
     icon: Brain,
-    color: "#926247",
+    color: "#CFC3EF",
     maxScore: 50,
     ranges: [
       { min: 40, max: 50, level: "良好", description: "情绪调节策略丰富灵活", recommendation: "可直接进入进阶级" },
@@ -36,7 +36,7 @@ const dimensions = [
     id: "social",
     title: "社会维度",
     icon: Users,
-    color: "#fe814b",
+    color: "#FFC0C0",
     maxScore: 40,
     ranges: [
       { min: 32, max: 40, level: "良好", description: "社会支持系统健全", recommendation: "可直接进入进阶级" },
@@ -100,13 +100,13 @@ export function DeepAssessmentResults() {
                 key={dim.id}
                 className={`rounded-2xl p-6 border-2 ${
                   dim.id === lowestDimension.id
-                    ? "bg-[#fff9f0] border-[#ffd89b]"
+                    ? "bg-[#FFDD5B]/10 border-0"
                     : "bg-white border-[rgba(31,22,15,0.12)]"
                 }`}
               >
                 {dim.id === lowestDimension.id && (
                   <div className="mb-3">
-                    <span className="inline-block px-3 py-1 bg-[#fe814b] text-white text-xs font-bold rounded-full">
+                    <span className="inline-block px-3 py-1 bg-[#FFC0C0] text-white text-xs font-bold rounded-full">
                       建议优先训练
                     </span>
                   </div>
@@ -163,9 +163,9 @@ export function DeepAssessmentResults() {
           <h2 className="text-xl font-bold text-[#4b3425] mb-4">精准训练顺序</h2>
           
           <div className="space-y-3 mb-6">
-            <div className="bg-[#d4e7b8] rounded-2xl p-5 border-2 border-[#9bb068]">
+            <div className="bg-[#e0ebc0] rounded-2xl p-5 border-2 border-[#B5CF80]">
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#9bb068] text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span className="bg-[#B5CF80] text-white text-xs font-bold px-3 py-1 rounded-full">
                   优先
                 </span>
                 <span className="font-bold text-[#4b3425]">
@@ -179,7 +179,7 @@ export function DeepAssessmentResults() {
 
             <div className="bg-white rounded-2xl p-5 border-2 border-[rgba(31,22,15,0.12)]">
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#926247] text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span className="bg-[#CFC3EF] text-white text-xs font-bold px-3 py-1 rounded-full">
                   然后
                 </span>
                 <span className="font-bold text-[#4b3425]">其他维度·配合第一个维度同步练习</span>
@@ -207,7 +207,7 @@ export function DeepAssessmentResults() {
         </div>
 
         {/* Info Card */}
-        <div className="bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b]">
+        <div className="bg-[#FFDD5B]/10 rounded-2xl p-5 border border-0">
           <p className="text-sm text-[#4b3425] leading-relaxed mb-3 font-semibold">
             关于你的报告：
           </p>

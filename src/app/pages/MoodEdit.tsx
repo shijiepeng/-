@@ -145,7 +145,7 @@ export function MoodEdit() {
               }}
             >
               {showSaved ? (
-                <div className="w-full h-full bg-[#9bb068] rounded-full flex items-center justify-center">
+                <div className="w-full h-full bg-[#B5CF80] rounded-full flex items-center justify-center">
                   <Check className="w-16 h-16 text-white" />
                 </div>
               ) : (
@@ -283,7 +283,7 @@ export function MoodEdit() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="w-full bg-white text-[#9bb068] text-lg font-bold py-4 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto mt-12"
+            className="w-full bg-white text-[#B5CF80] text-lg font-bold py-4 rounded-full shadow-md flex items-center justify-center gap-2 mx-auto mt-12"
             style={{ maxWidth: "343px" }}
           >
             <Check className="w-5 h-5" />

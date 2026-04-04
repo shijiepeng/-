@@ -18,17 +18,17 @@ const trainingIcons: Record<string, React.ComponentType<any>> = {
 };
 
 const trainingInfo: Record<string, { title: string; dimension: string; color: string }> = {
-  "food-emotion": { title: "读懂你和食物的关系", dimension: "生物维度", color: "#9bb068" },
-  "sleep-training": { title: "夜晚好好睡", dimension: "生物维度", color: "#9bb068" },
-  "body-awareness": { title: "听懂身体说的话", dimension: "生物维度", color: "#9bb068" },
-  "exercise-emotion": { title: "动一动，心也跟着松了", dimension: "生物维度", color: "#9bb068" },
-  "cognitive-reframe": { title: "换一个角度想想看", dimension: "心理维度", color: "#926247" },
-  "emotion-regulation": { title: "找到适合自己的方式", dimension: "心理维度", color: "#926247" },
-  "stop-rumination": { title: "放下脑子里的那个声音", dimension: "心理维度", color: "#926247" },
-  "resilience-training": { title: "下次会更从容", dimension: "心理维度", color: "#926247" },
-  "know-needs": { title: "知道自己需要什么", dimension: "社会维度", color: "#fe814b" },
-  "find-support": { title: "找到可以依靠的人", dimension: "社会维度", color: "#fe814b" },
-  "relationship-care": { title: "在关系里更自在", dimension: "社会维度", color: "#fe814b" },
+  "food-emotion": { title: "读懂你和食物的关系", dimension: "生物维度", color: "#B5CF80" },
+  "sleep-training": { title: "夜晚好好睡", dimension: "生物维度", color: "#B5CF80" },
+  "body-awareness": { title: "听懂身体说的话", dimension: "生物维度", color: "#B5CF80" },
+  "exercise-emotion": { title: "动一动，心也跟着松了", dimension: "生物维度", color: "#B5CF80" },
+  "cognitive-reframe": { title: "换一个角度想想看", dimension: "心理维度", color: "#CFC3EF" },
+  "emotion-regulation": { title: "找到适合自己的方式", dimension: "心理维度", color: "#CFC3EF" },
+  "stop-rumination": { title: "放下脑子里的那个声音", dimension: "心理维度", color: "#CFC3EF" },
+  "resilience-training": { title: "下次会更从容", dimension: "心理维度", color: "#CFC3EF" },
+  "know-needs": { title: "知道自己需要什么", dimension: "社会维度", color: "#FFC0C0" },
+  "find-support": { title: "找到可以依靠的人", dimension: "社会维度", color: "#FFC0C0" },
+  "relationship-care": { title: "在关系里更自在", dimension: "社会维度", color: "#FFC0C0" },
 };
 
 export function Favorites() {
@@ -36,7 +36,7 @@ export function Favorites() {
   const { favorites, trainingProgress, getLevelProgress, toggleFavorite } = useTrainingProgress();
 
   const favoriteTrainings = favorites.map((id) => {
-    const info = trainingInfo[id] || { title: id, dimension: "未知", color: "#9bb068" };
+    const info = trainingInfo[id] || { title: id, dimension: "未知", color: "#B5CF80" };
     const progress = trainingProgress[id];
     let progressPercent = 0;
     if (progress) {
@@ -80,7 +80,7 @@ export function Favorites() {
               <button
                 key={training.id}
                 onClick={() => navigate(`/training/${training.id}`)}
-                className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] hover:border-[#9bb068] transition-all text-left active:scale-[0.98]"
+                className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80] transition-all text-left active:scale-[0.98]"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div
@@ -148,7 +148,7 @@ export function Favorites() {
             </p>
             <button
               onClick={() => navigate("/training")}
-              className="bg-[#9bb068] text-white px-8 py-3 rounded-full font-semibold active:scale-95 transition-transform"
+              className="bg-[#B5CF80] text-white px-8 py-3 rounded-full font-semibold active:scale-95 transition-transform"
             >
               浏览训练包
             </button>

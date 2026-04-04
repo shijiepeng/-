@@ -202,15 +202,15 @@ export function TrainingDetail() {
                 }
                 className={`w-full rounded-2xl p-4 text-left transition-all border-2 ${
                   isLessonCompleted
-                    ? "bg-[#d4e7b8]/30 border-[#9bb068]/50"
-                    : "bg-white border-[rgba(31,22,15,0.12)] hover:border-[#9bb068]"
+                    ? "bg-[#d4e7b8]/30 border-[#B5CF80]/50"
+                    : "bg-white border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80]"
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                       isLessonCompleted
-                        ? "bg-[#9bb068]"
+                        ? "bg-[#B5CF80]"
                         : "bg-[#f7f4f2]"
                     }`}
                   >
@@ -236,7 +236,7 @@ export function TrainingDetail() {
                       </span>
                     </div>
                     {isLessonCompleted && (
-                      <p className="text-xs text-[#9bb068] font-medium">
+                      <p className="text-xs text-[#B5CF80] font-medium">
                         已完成 ✓
                       </p>
                     )}
@@ -244,7 +244,7 @@ export function TrainingDetail() {
                   <Play
                     className="w-5 h-5 flex-shrink-0"
                     style={{
-                      color: isLessonCompleted ? "#9bb068" : training.color,
+                      color: isLessonCompleted ? "#B5CF80" : training.color,
                     }}
                   />
                 </div>
@@ -254,7 +254,7 @@ export function TrainingDetail() {
         </div>
 
         {/* Theory Base */}
-        <div className="mt-6 bg-[#fff9f0] rounded-2xl p-5 border border-[#ffd89b]">
+        <div className="mt-6 bg-[#FFDD5B]/10 rounded-2xl p-5 border-0">
           <p className="text-sm text-[#4b3425] mb-2 font-semibold">
             理论依据
           </p>

@@ -44,7 +44,7 @@ export function BottomNav() {
             >
               <Icon
                 className="w-6 h-6 mb-1"
-                style={{ color: isActive ? "#9bb068" : "rgba(31,22,15,0.48)" }}
+                style={{ color: isActive ? "#B5CF80" : "rgba(31,22,15,0.48)" }}
               />
               <span
                 className="text-xs font-medium"
