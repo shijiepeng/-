@@ -1,8 +1,22 @@
 import { useNavigate, useParams } from "react-router";
-import { ArrowLeft, CheckCircle2, Play, Lock, Star } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Play, Lock, Star, Moon, Activity, Utensils, Dumbbell, Brain, Heart, Shield, Users, VolumeX, RefreshCw, Sliders, Compass, UserCheck } from "lucide-react";
 import { useState } from "react";
 import { trainingPackages } from "../data/trainingPackages";
 import { useTrainingProgress } from "../store";
+
+const trainingIcons: Record<string, React.ComponentType<any>> = {
+  "food-emotion": Utensils,
+  "sleep-training": Moon,
+  "body-awareness": Heart,
+  "exercise-emotion": Dumbbell,
+  "cognitive-reframe": RefreshCw,
+  "emotion-regulation": Sliders,
+  "stop-rumination": VolumeX,
+  "resilience-training": Shield,
+  "know-needs": Compass,
+  "find-support": UserCheck,
+  "relationship-care": Users,
+};
 
 export function TrainingDetail() {
   const navigate = useNavigate();
@@ -46,7 +60,10 @@ export function TrainingDetail() {
             className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
             style={{ backgroundColor: `${training.color}20` }}
           >
-            <span className="text-3xl">💪</span>
+            {(() => {
+              const IconComponent = trainingIcons[trainingId!] || Activity;
+              return <IconComponent className="w-8 h-8" style={{ color: training.color }} />;
+            })()}
           </div>
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-[#4b3425] mb-1">

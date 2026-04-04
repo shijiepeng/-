@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router";
 import {
-  Activity,
   Brain,
   Users,
-  Heart,
   TrendingUp,
   Star,
   Calendar,
@@ -156,7 +154,6 @@ export function Home() {
                 {/* 今日心情摘要或引导 */}
                 {todayRecord ? (
                   <div className="flex items-center gap-2 mt-3 bg-white/20 rounded-full px-3 py-1.5 w-fit">
-                    <span className="text-lg">{moods[todayRecord.moodValue]?.emoji}</span>
                     <span className="text-sm text-white">
                       今天心情：{moods[todayRecord.moodValue]?.label}
                     </span>
@@ -263,63 +260,61 @@ export function Home() {
             </motion.div>
           )}
 
-          {/* Quick Entry Buttons */}
-          <motion.div variants={itemVariants} className="space-y-3 mt-6">
-            <button
-              onClick={() => navigate("/training")}
-              className="w-full bg-white border-2 border-[#9bb068] rounded-2xl p-5 text-left hover:scale-[1.01] active:scale-[0.98] transition-all"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <Activity className="w-6 h-6 text-[#9bb068]" />
+          {/* Quick Entry Cards */}
+          <motion.div variants={itemVariants} className="mt-6">
+            <div className="flex gap-3">
+              {/* Card 1: 系统提升 */}
+              <button
+                onClick={() => navigate("/training")}
+                className="flex-1 relative rounded-2xl p-4 pb-5 overflow-hidden shadow-lg active:scale-[0.98] transition-transform"
+                style={{
+                  background: "linear-gradient(135deg, #9bb068 0%, #7d9456 100%)",
+                }}
+              >
+                <div className="absolute top-0 left-0 w-20 h-20 opacity-30">
+                  <img src="/image/back1.png" alt="" className="w-full h-full object-contain" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-[#4b3425] mb-1">
-                    我想系统提升情绪能力
+                <div className="relative z-10">
+                  <h3 className="font-bold text-white mb-1 text-sm leading-tight">
+                    我想系统提升<br />情绪能力
                   </h3>
-                  <p className="text-sm text-[rgba(31,22,15,0.64)]">
+                  <p className="text-white/80 text-xs">
                     三大维度 × 11个训练包
                   </p>
                 </div>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M7 4l6 6-6 6"
-                    stroke="#9bb068"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
-
-            <button
-              onClick={() => navigate("/situations")}
-              className="w-full bg-white border-2 border-[#926247] rounded-2xl p-5 text-left hover:scale-[1.01] active:scale-[0.98] transition-all"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#f7f4f2] rounded-full flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-[#926247]" />
+                <div className="absolute bottom-3 right-3 w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                    <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-[#4b3425] mb-1">
-                    我现在有具体困扰
+              </button>
+
+              {/* Card 2: 具体困扰 */}
+              <button
+                onClick={() => navigate("/situations")}
+                className="flex-1 relative rounded-2xl p-4 pb-5 overflow-hidden shadow-lg active:scale-[0.98] transition-transform"
+                style={{
+                  background: "linear-gradient(135deg, #926247 0%, #7a5239 100%)",
+                }}
+              >
+                <div className="absolute top-0 left-0 w-20 h-20 opacity-30">
+                  <img src="/image/back2.png" alt="" className="w-full h-full object-contain" />
+                </div>
+                <div className="relative z-10">
+                  <h3 className="font-bold text-white mb-1 text-sm leading-tight">
+                    我现在有<br />具体困扰
                   </h3>
-                  <p className="text-sm text-[rgba(31,22,15,0.64)]">
+                  <p className="text-white/80 text-xs">
                     6种常见情境，针对性训练
                   </p>
                 </div>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M7 4l6 6-6 6"
-                    stroke="rgba(31,22,15,0.48)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
+                <div className="absolute bottom-3 right-3 w-8 h-8 bg-white/30 rounded-full flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                    <path d="M7 4l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </motion.div>
 
           {/* 本周情绪趋势图（有记录时显示） */}
