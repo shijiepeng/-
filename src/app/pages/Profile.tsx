@@ -163,7 +163,7 @@ export function Profile() {
                   {item.label}
                 </span>
                 {item.badge && (
-                  <span className="px-2 py-0.5 bg-[#B5CF80] text-white text-xs font-bold rounded-full">
+                  <span className="px-2 py-0.5 bg-[#B5CF80] text-[#4b3425] text-xs font-bold rounded-full">
                     {item.badge}
                   </span>
                 )}

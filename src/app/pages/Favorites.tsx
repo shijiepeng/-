@@ -148,7 +148,7 @@ export function Favorites() {
             </p>
             <button
               onClick={() => navigate("/training")}
-              className="bg-[#B5CF80] text-white px-8 py-3 rounded-full font-semibold active:scale-95 transition-transform"
+              className="bg-[#B5CF80] text-[#4b3425] px-8 py-3 rounded-full font-semibold active:scale-95 transition-transform"
             >
               浏览训练包
             </button>

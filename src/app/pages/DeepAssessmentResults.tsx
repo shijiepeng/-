@@ -165,7 +165,7 @@ export function DeepAssessmentResults() {
           <div className="space-y-3 mb-6">
             <div className="bg-[#e0ebc0] rounded-2xl p-5 border-2 border-[#B5CF80]">
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#B5CF80] text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span className="bg-[#B5CF80] text-[#4b3425] text-xs font-bold px-3 py-1 rounded-full">
                   优先
                 </span>
                 <span className="font-bold text-[#4b3425]">
@@ -199,7 +199,7 @@ export function DeepAssessmentResults() {
             </button>
             <button 
               onClick={() => navigate("/training")}
-              className="flex-1 py-4 bg-[#B5CF80] text-white font-semibold rounded-full"
+              className="flex-1 py-4 bg-[#B5CF80] text-[#4b3425] font-semibold rounded-full"
             >
               开始训练
             </button>

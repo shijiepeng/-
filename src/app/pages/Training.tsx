@@ -65,7 +65,7 @@ export function Training() {
         >
           <h2 className="text-lg font-bold text-[#4B3425] mb-3">推荐路径</h2>
           <div className="flex items-center gap-2 text-sm">
-            <span className="bg-[#B5CF80] text-white px-3 py-1.5 rounded-full font-semibold">生物</span>
+            <span className="bg-[#B5CF80] text-[#4b3425] px-3 py-1.5 rounded-full font-semibold">生物</span>
             <span className="text-[rgba(31,22,15,0.48)]">→</span>
             <span className="bg-[#CFC3EF] text-white px-3 py-1.5 rounded-full font-semibold">心理</span>
             <span className="text-[rgba(31,22,15,0.48)]">→</span>

@@ -347,7 +347,7 @@ export function LessonDetail() {
           </span>
           {isCompleted && (
             <motion.span
-              className="text-xs px-2 py-1 rounded-full bg-[#B5CF80] text-white font-semibold"
+              className="text-xs px-2 py-1 rounded-full bg-[#B5CF80] text-[#4b3425] font-semibold"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
