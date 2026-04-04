@@ -110,7 +110,9 @@ export function Home() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-base text-[rgba(31,22,15,0.64)]"
         >
-          练出更好的自己，从情绪开始
+          练出更好的自己，
+          <br />
+          从情绪开始
         </motion.p>
       </header>
 
