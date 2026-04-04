@@ -182,6 +182,7 @@ export function Assessment() {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
+      setScaleValue(5);
     } else {
       // 计算三维度分数
       let bioScore = 50;
@@ -276,31 +277,19 @@ export function Assessment() {
       </motion.header>
 
       {/* Question */}
-      <main className="px-4 pb-24">
-        <motion.h2
-          key={currentQuestion}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="text-2xl font-bold text-[#4b3425] mb-8"
-        >
+      <main className="px-4 pb-24" key={currentQuestion}>
+        <h2 className="text-2xl font-bold text-[#4b3425] mb-8">
           {currentQ.question}
-        </motion.h2>
+        </h2>
 
         {isScaleQuestion ? (
-          <motion.div
-            key={currentQuestion}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <div className="text-sm text-[rgba(31,22,15,0.64)] mb-2">
               0 = {currentQ.minLabel}, 10 = {currentQ.maxLabel}
             </div>
             <div className="flex gap-2 justify-between">
               {[...Array(11)].map((_, i) => (
-                <motion.button
+                <button
                   key={i}
                   onClick={() => setScaleValue(i)}
                   className={`w-12 h-12 rounded-lg font-semibold text-lg transition-all ${
@@ -308,10 +297,9 @@ export function Assessment() {
                       ? "bg-[#9bb068] text-white scale-110"
                       : "bg-white text-[#4b3425] border-2 border-[rgba(31,22,15,0.12)]"
                   }`}
-                  whileTap={{ scale: 0.95 }}
                 >
                   {i}
-                </motion.button>
+                </button>
               ))}
             </div>
             <div className="flex justify-between text-xs text-[rgba(31,22,15,0.64)]">
@@ -319,20 +307,14 @@ export function Assessment() {
               <span>还好</span>
               <span>{currentQ.maxLabel}</span>
             </div>
-          </motion.div>
+          </div>
         ) : (
-          <motion.div
-            key={currentQuestion}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4">
             <p className="text-sm text-[rgba(31,22,15,0.64)] mb-4">
               选一个最符合的就好，不用想太多
             </p>
             {currentQ.options.map((option, index) => (
-              <motion.button
+              <button
                 key={index}
                 onClick={() => setSelectedOption(index)}
                 className={`w-full p-4 rounded-2xl text-left transition-all ${
@@ -340,12 +322,11 @@ export function Assessment() {
                     ? "bg-[#d4e7b8] border-2 border-[#9bb068]"
                     : "bg-white border-2 border-[rgba(31,22,15,0.12)]"
                 }`}
-                whileTap={{ scale: 0.98 }}
               >
                 <span className="text-[#4b3425] font-medium">{option.text}</span>
-              </motion.button>
+              </button>
             ))}
-          </motion.div>
+          </div>
         )}
 
         {/* Next Button */}
