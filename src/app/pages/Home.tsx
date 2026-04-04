@@ -5,11 +5,36 @@ import {
   TrendingUp,
   Star,
   Calendar,
+  Moon,
+  Heart,
+  Dumbbell,
+  RefreshCw,
+  Sliders,
+  VolumeX,
+  Shield,
+  Compass,
+  UserCheck,
+  Utensils,
+  Activity,
 } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
 import { useMoodRecords, useTrainingProgress } from "../store";
 import { WeekMood } from "../components/MoodChart";
 import { motion } from "motion/react";
+
+const trainingIcons: Record<string, React.ComponentType<any>> = {
+  "food-emotion": Utensils,
+  "sleep-training": Moon,
+  "body-awareness": Heart,
+  "exercise-emotion": Dumbbell,
+  "cognitive-reframe": RefreshCw,
+  "emotion-regulation": Sliders,
+  "stop-rumination": VolumeX,
+  "resilience-training": Shield,
+  "know-needs": Compass,
+  "find-support": UserCheck,
+  "relationship-care": Users,
+};
 
 const moods = [
   { value: 0, label: "很糟糕", emoji: "😢" },
@@ -184,13 +209,10 @@ export function Home() {
                         className="w-10 h-10 rounded-xl flex items-center justify-center"
                         style={{ backgroundColor: `${training.color}20` }}
                       >
-                        <span className="text-lg">
-                          {training.dimension === "生物维度"
-                            ? "🌿"
-                            : training.dimension === "心理维度"
-                              ? "🧠"
-                              : "👥"}
-                        </span>
+                        {(() => {
+                          const IconComponent = trainingIcons[training.id] || Activity;
+                          return <IconComponent className="w-5 h-5" style={{ color: training.color }} />;
+                        })()}
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="font-bold text-[#4b3425] mb-0.5 truncate">
