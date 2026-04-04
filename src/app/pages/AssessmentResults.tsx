@@ -168,7 +168,7 @@ export function AssessmentResults() {
             </button>
             <button
               onClick={() => navigate("/training")}
-              className="flex-1 py-4 bg-[#4b3425] text-white font-semibold rounded-full"
+              className="flex-1 py-4 bg-[#B5CF80] text-white font-semibold rounded-full"
             >
               开始训练
             </button>

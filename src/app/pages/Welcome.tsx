@@ -85,7 +85,7 @@ export function Welcome() {
                 clearAssessment();
                 navigate("/assessment");
               }}
-              className="w-full bg-[#4b3425] text-white py-4 rounded-full font-semibold text-lg shadow-lg"
+              className="w-full bg-[#B5CF80] text-white py-4 rounded-full font-semibold text-lg shadow-lg"
             >
               开始情绪体能测评
             </button>

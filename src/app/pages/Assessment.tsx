@@ -333,7 +333,7 @@ export function Assessment() {
         <button
           onClick={handleNext}
           disabled={!isScaleQuestion && selectedOption === null}
-          className="fixed bottom-8 left-4 right-4 bg-[#4b3425] text-white py-4 rounded-full font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="fixed bottom-8 left-4 right-4 bg-[#B5CF80] text-white py-4 rounded-full font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {currentQuestion < questions.length - 1 ? "下一题" : "完成测评"}
         </button>
