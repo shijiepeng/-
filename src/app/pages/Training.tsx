@@ -229,18 +229,6 @@ export function Training() {
             </div>
           </motion.div>
 
-          {/* 重新测评按钮 */}
-          <motion.div
-            className="mt-8"
-            variants={itemVariants}
-          >
-            <button
-              onClick={() => navigate("/deep-assessment")}
-              className="w-full py-4 border-2 border-[#4b3425] text-[#4b3425] font-semibold rounded-full"
-            >
-              重新深化测评
-            </button>
-          </motion.div>
         </motion.div>
       </main>
 
