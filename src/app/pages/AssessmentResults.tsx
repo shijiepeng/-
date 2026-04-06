@@ -179,7 +179,7 @@ export function AssessmentResults() {
         <div className="bg-[#FFDD5B]/10 rounded-2xl p-5 border-0">
           <p className="text-sm text-[#4b3425] leading-relaxed">
             <span className="font-semibold">小提示：</span>
-            心理健身房不治病，不替代心理咨询。我们帮你在日常生活中系统提升情绪调节能力——就像Keep帮你提升身体素质一样。
+            心理健身房不治病，不替代心理咨询。我们帮你在日常生活中系统提升情绪调节能力——就像健身帮你提升身体素质一样。
           </p>
         </div>
       </main>
