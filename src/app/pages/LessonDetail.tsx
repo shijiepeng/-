@@ -301,7 +301,7 @@ export function LessonDetail() {
                 已完成
               </>
             ) : isLastLesson ? (
-              "返回列表"
+              "进入后测"
             ) : (
               "完成并继续"
             )}
