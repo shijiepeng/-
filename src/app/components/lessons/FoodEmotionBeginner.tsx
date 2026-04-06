@@ -17,7 +17,7 @@ export function FoodEmotionBeginner({ onComplete, onNext, isLastLesson, training
     {
       id: 1,
       title: "场景 1 / 8",
-      scenario: "你刚刚跟朋友吵炒架了，心里很烦，打开冰箱找东西吃。",
+      scenario: "你刚刚跟朋友吵架了，心里很烦，打开冰箱找东西吃。",
       question: "这次想吃东西，是因为...",
       options: [
         { value: "hungry", label: "身体真的饿了" },
@@ -174,7 +174,7 @@ export function FoodEmotionBeginner({ onComplete, onNext, isLastLesson, training
             <p className="text-sm text-[#4b3425] leading-relaxed">
               <span className="font-semibold flex items-center gap-1"><Lightbulb className="w-4 h-4" /> 下一课预告</span>
               <br />
-              我们将深入学习"真饿"和"假饿"的区别，以及如何在日常生活中识别它们。
+              我们将继续探索是什么让你产生了情绪性进食。
             </p>
           </div>
         </div>

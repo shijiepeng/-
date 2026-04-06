@@ -101,7 +101,7 @@ export function Welcome() {
               <ul className="space-y-2 text-sm text-[#4b3425]">
                 <li>• 这里不治病，不替代心理咨询</li>
                 <li>• 帮你在日常生活中提升情绪调节能力</li>
-                <li>• 就像Keep帮你提升身体素质一样</li>
+                <li>• 就像健身帮你提升身体素质一样</li>
               </ul>
             </div>
           </div>

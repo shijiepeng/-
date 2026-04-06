@@ -202,7 +202,7 @@ export function Home() {
                   <button
                     key={training.id}
                     onClick={() => navigate(`/training/${training.id}`)}
-                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80] transition-all text-left active:scale-[0.98]"
+                    className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80] shadow-md hover:shadow-lg transition-all text-left active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div
@@ -331,7 +331,7 @@ export function Home() {
             <div className="bg-[#FFDD5B]/10 rounded-2xl p-5 border-0 mt-6">
               <p className="text-sm text-[#4b3425] leading-relaxed">
                 <strong>关于心理健身房：</strong>
-                就像Keep帮你提升身体素质一样，我们帮助你在日常生活中系统提升情绪调节能力。
+                就像健身帮你提升身体素质一样，我们帮助你在日常生活中系统提升情绪调节能力。
                 {" "}<strong>不治病，不替代心理咨询。</strong>
               </p>
             </div>
