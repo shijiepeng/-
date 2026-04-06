@@ -18,9 +18,10 @@ import {
   Activity,
 } from "lucide-react";
 import { BottomNav } from "../components/BottomNav";
-import { useMoodRecords, useTrainingProgress } from "../store";
+import { useMoodRecords, useTrainingProgress, useTrainingReturnPath } from "../store";
 import { WeekMood } from "../components/MoodChart";
 import { motion } from "motion/react";
+import { useEffect } from "react";
 
 const trainingIcons: Record<string, React.ComponentType<any>> = {
   "food-emotion": Utensils,
@@ -61,6 +62,11 @@ export function Home() {
   const navigate = useNavigate();
   const { getStreakDays, getTodayRecord, getRecentRecords, moodRecords } = useMoodRecords();
   const { favorites, trainingProgress, getLevelProgress } = useTrainingProgress();
+  const { setTrainingReturnPath } = useTrainingReturnPath();
+
+  useEffect(() => {
+    setTrainingReturnPath(null);
+  }, [setTrainingReturnPath]);
 
   const streakDays = getStreakDays();
   const todayRecord = getTodayRecord();

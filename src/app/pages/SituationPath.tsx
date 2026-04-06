@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { useTrainingReturnPath } from "../store";
 
 // 情境化训练路径配置
 const situationPaths = {
@@ -71,6 +72,7 @@ const situationPaths = {
 export function SituationPath() {
   const navigate = useNavigate();
   const { situationId } = useParams();
+  const { setTrainingReturnPath } = useTrainingReturnPath();
 
   const situation = situationPaths[situationId as keyof typeof situationPaths];
 
@@ -84,7 +86,7 @@ export function SituationPath() {
       <header className="bg-white px-4 pt-6 pb-6">
         <div className="flex items-center justify-between mb-6">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/situations")}
             className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
@@ -123,7 +125,10 @@ export function SituationPath() {
             {situation.modules.map((module, index) => (
               <div key={module.id} className="relative">
                 <button
-                  onClick={() => navigate(`/training/${module.id}/level/beginner`)}
+                  onClick={() => {
+                    setTrainingReturnPath(`/situation/${situationId}`);
+                    navigate(`/training/${module.id}/level/beginner`);
+                  }}
                   className="w-full bg-white rounded-2xl p-5 text-left transition-all hover:scale-[1.01] border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80]"
                 >
                   <div className="flex items-start gap-4">

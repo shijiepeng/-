@@ -70,4 +70,5 @@ export interface AppStore {
   favorites: string[]; // trainingId[]
   hasCompletedOnboarding: boolean;
   prePostTestResults: PrePostTestResult[]; // 训练前后测结果
+  trainingReturnPath: string | null; // 从情景导向训练路径进入时的返回路径
 }

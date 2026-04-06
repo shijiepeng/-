@@ -3,6 +3,8 @@ import { Activity, Brain, Users, ChevronRight, Apple, Moon, Heart, Dumbbell, Ref
 import { trainingPackages } from "../data/trainingPackages";
 import { BottomNav } from "../components/BottomNav";
 import { motion } from "motion/react";
+import { useTrainingReturnPath } from "../store";
+import { useEffect } from "react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -34,6 +36,11 @@ const trainingIcons: Record<string, React.ComponentType<{ className?: string; st
 
 export function Training() {
   const navigate = useNavigate();
+  const { setTrainingReturnPath } = useTrainingReturnPath();
+
+  useEffect(() => {
+    setTrainingReturnPath(null);
+  }, [setTrainingReturnPath]);
 
   // Convert trainingPackages object to array
   const trainingList = Object.values(trainingPackages);

@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router";
 import { ArrowLeft, CheckCircle2, Play, Lock, Star, Moon, Activity, Utensils, Dumbbell, Brain, Heart, Shield, Users, VolumeX, RefreshCw, Sliders, Compass, UserCheck, ClipboardList, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import { trainingPackages } from "../data/trainingPackages";
-import { useTrainingProgress, usePrePostTest } from "../store";
+import { useTrainingProgress, usePrePostTest, useTrainingReturnPath } from "../store";
 
 const trainingIcons: Record<string, React.ComponentType<any>> = {
   "food-emotion": Utensils,
@@ -30,6 +30,7 @@ export function TrainingDetail() {
   const { getProgress, getLevelProgress, toggleFavorite, favorites } =
     useTrainingProgress();
   const { hasPreTest, hasPostTest, getPreTest, getPostTest } = usePrePostTest();
+  const { trainingReturnPath } = useTrainingReturnPath();
 
   const training = trainingPackages[trainingId as keyof typeof trainingPackages];
 
@@ -52,7 +53,7 @@ export function TrainingDetail() {
       <header className="bg-white px-4 pt-6 pb-4">
         <div className="flex items-center justify-between mb-6">
           <button
-            onClick={() => navigate("/training")}
+            onClick={() => navigate(trainingReturnPath || "/training")}
             className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />

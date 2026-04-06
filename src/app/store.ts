@@ -27,6 +27,7 @@ const defaultStore: AppStore = {
   favorites: [],
   hasCompletedOnboarding: false,
   prePostTestResults: [],
+  trainingReturnPath: null,
 };
 
 // ==================== localStorage 操作 ====================
@@ -365,5 +366,20 @@ export function usePrePostTest() {
     getPostTest,
     hasPreTest,
     hasPostTest,
+  };
+}
+
+// ==================== 训练返回路径 Hook ====================
+
+export function useTrainingReturnPath() {
+  const { store, update } = useStore();
+
+  const setTrainingReturnPath = useCallback((path: string | null) => {
+    update({ trainingReturnPath: path });
+  }, [update]);
+
+  return {
+    trainingReturnPath: store.trainingReturnPath,
+    setTrainingReturnPath,
   };
 }
