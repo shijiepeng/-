@@ -148,7 +148,17 @@ export function MoodLog() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-      />
+      >
+        <div className="flex items-center justify-between mb-6">
+          <motion.button
+            onClick={() => navigate(-1)}
+            className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
+            whileTap={{ scale: 0.95 }}
+          >
+            <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
+          </motion.button>
+        </div>
+      </motion.header>
 
       <motion.main
         className="px-4 pt-2"

@@ -83,8 +83,8 @@ export function SituationPath() {
       {/* Header */}
       <header className="bg-white px-4 pt-6 pb-6">
         <div className="flex items-center justify-between mb-6">
-          <button 
-            onClick={() => navigate("/home")}
+          <button
+            onClick={() => navigate(-1)}
             className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
