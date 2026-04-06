@@ -37,6 +37,21 @@ export interface AssessmentResult {
   answers?: Record<string, any>;
 }
 
+// ==================== 训练前后测 ====================
+export interface PrePostTestResult {
+  trainingId: string;
+  level: "beginner" | "advanced" | "intensive";
+  type: "pre" | "post";
+  date: string;
+  Q1_mood: number; // 1-10 情绪总体感受
+  Q2_emotion: string; // 最强烈感受
+  Q3_intensity: number; // 强度 1-?
+  Q4_reason?: string; // 前测专属：今天是什么让你来训练的
+  Q2_change?: string; // 后测专属：和训练前比有什么变化
+  Q3_impress?: string; // 后测专属：什么让你印象深刻
+  Q4_completion?: number; // 后测专属：完成打分 1-5
+}
+
 // ==================== 用户统计 ====================
 export interface UserStats {
   joinDate: string;
@@ -54,4 +69,5 @@ export interface AppStore {
   userStats: UserStats;
   favorites: string[]; // trainingId[]
   hasCompletedOnboarding: boolean;
+  prePostTestResults: PrePostTestResult[]; // 训练前后测结果
 }

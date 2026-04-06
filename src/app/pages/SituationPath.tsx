@@ -123,7 +123,7 @@ export function SituationPath() {
             {situation.modules.map((module, index) => (
               <div key={module.id} className="relative">
                 <button
-                  onClick={() => navigate(`/training/${module.id}`)}
+                  onClick={() => navigate(`/training/${module.id}/level/beginner`)}
                   className="w-full bg-white rounded-2xl p-5 text-left transition-all hover:scale-[1.01] border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80]"
                 >
                   <div className="flex items-start gap-4">

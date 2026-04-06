@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router";
-import { ArrowLeft, CheckCircle2, Play, Lock, Star, Moon, Activity, Utensils, Dumbbell, Brain, Heart, Shield, Users, VolumeX, RefreshCw, Sliders, Compass, UserCheck } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Play, Lock, Star, Moon, Activity, Utensils, Dumbbell, Brain, Heart, Shield, Users, VolumeX, RefreshCw, Sliders, Compass, UserCheck, ClipboardList, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import { trainingPackages } from "../data/trainingPackages";
-import { useTrainingProgress } from "../store";
+import { useTrainingProgress, usePrePostTest } from "../store";
 
 const trainingIcons: Record<string, React.ComponentType<any>> = {
   "food-emotion": Utensils,
@@ -20,12 +20,16 @@ const trainingIcons: Record<string, React.ComponentType<any>> = {
 
 export function TrainingDetail() {
   const navigate = useNavigate();
-  const { trainingId } = useParams();
+  const { trainingId, level } = useParams<{
+    trainingId: string;
+    level: "beginner" | "advanced" | "intensive";
+  }>();
   const [selectedLevel, setSelectedLevel] = useState<
     "beginner" | "advanced" | "intensive"
-  >("beginner");
+  >(level || "beginner");
   const { getProgress, getLevelProgress, toggleFavorite, favorites } =
     useTrainingProgress();
+  const { hasPreTest, hasPostTest, getPreTest, getPostTest } = usePrePostTest();
 
   const training = trainingPackages[trainingId as keyof typeof trainingPackages];
 
@@ -48,7 +52,7 @@ export function TrainingDetail() {
       <header className="bg-white px-4 pt-6 pb-4">
         <div className="flex items-center justify-between mb-6">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/training")}
             className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
           >
             <ArrowLeft className="w-6 h-6 text-[#4b3425]" />
@@ -185,6 +189,51 @@ export function TrainingDetail() {
       <main className="px-4 py-6 pb-24">
         <h2 className="text-lg font-bold text-[#4b3425] mb-4">课程内容</h2>
 
+        {/* 前测卡片 */}
+        <button
+          onClick={() => navigate(`/pre-post-test/${trainingId}/${selectedLevel}/pre`)}
+          className={`w-full bg-white rounded-2xl p-4 mb-4 border-2 flex items-center gap-4 transition-all ${
+            levelProgressPercent === 100
+              ? "border-[#B5CF80]/50 cursor-pointer hover:border-[#B5CF80]"
+              : levelProgressPercent === 0
+                ? "border-[#e8b84f]/50 cursor-pointer hover:border-[#e8b84f]"
+                : "border-[rgba(31,22,15,0.24)] opacity-50 cursor-not-allowed"
+          }`}
+          disabled={levelProgressPercent > 0 && levelProgressPercent < 100}
+        >
+          <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
+            levelProgressPercent === 100 ? "bg-[#B5CF80]/20" : "bg-[#e8b84f]/20"
+          }`}>
+            {levelProgressPercent === 100 ? (
+              <CheckCircle2 className="w-6 h-6 text-[#B5CF80]" />
+            ) : (
+              <ClipboardList className="w-6 h-6 text-[#e8b84f]" />
+            )}
+          </div>
+          <div className="flex-1 text-left">
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="font-bold text-[#4b3425]">训练前测</h3>
+              <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
+                levelProgressPercent === 100
+                  ? "bg-[#B5CF80]/20 text-[#B5CF80]"
+                  : levelProgressPercent === 0
+                    ? "bg-[#e8b84f]/20 text-[#e8b84f]"
+                    : "bg-[rgba(31,22,15,0.12)] text-[rgba(31,22,15,0.48)]"
+              }`}>
+                {levelProgressPercent === 100 ? "已完成" : levelProgressPercent === 0 ? "未开始" : "锁定"}
+              </span>
+            </div>
+            <p className="text-sm text-[rgba(31,22,15,0.64)]">
+              {hasPreTest(trainingId!, selectedLevel)
+                ? `起始情绪：${getPreTest(trainingId!, selectedLevel)?.Q1_mood ?? 0}，完成课程后可重新进行前测`
+                : levelProgressPercent === 0
+                  ? "建议完成前测再开始训练"
+                  : "完成课程后，可重新进行前测"}
+            </p>
+          </div>
+          <TrendingUp className={`w-5 h-5 ${levelProgressPercent === 100 ? "text-[#B5CF80]" : "text-[#e8b84f]"}`} />
+        </button>
+
         <div className="space-y-3">
           {currentLevel.lessons.map((lesson, index) => {
             const isLessonCompleted =
@@ -225,7 +274,7 @@ export function TrainingDetail() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <h3
-                        className={`font-bold ${isLessonCompleted ? "text-[rgba(31,22,15,0.56)] line-through" : "text-[#4b3425]"}`}
+                        className={`font-bold text-[#4b3425]`}
                       >
                         {lesson.title}
                       </h3>
@@ -252,6 +301,82 @@ export function TrainingDetail() {
             );
           })}
         </div>
+
+        {/* 后测卡片 - 放在课程列表下方 */}
+        {hasPostTest(trainingId!, selectedLevel) ? (
+          // 后测已完成 - 可点击重新测试
+          <button
+            onClick={() => navigate(`/pre-post-test/${trainingId}/${selectedLevel}/post`)}
+            className="mt-4 w-full bg-white rounded-2xl p-4 border-2 border-[#B5CF80]/50 text-left hover:border-[#B5CF80] transition-all flex items-center gap-4"
+          >
+            <div className="w-12 h-12 rounded-full bg-[#B5CF80]/20 flex items-center justify-center flex-shrink-0">
+              <TrendingUp className="w-6 h-6 text-[#B5CF80]" />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="font-bold text-[#4b3425]">训练后测</h3>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#B5CF80]/20 text-[#B5CF80] font-semibold">已完成</span>
+              </div>
+              {(() => {
+                const preTest = getPreTest(trainingId!, selectedLevel);
+                const postTest = getPostTest(trainingId!, selectedLevel);
+                const change = (postTest?.Q1_mood ?? 0) - (preTest?.Q1_mood ?? 0);
+                if (change > 0) {
+                  return (
+                    <p className="text-sm text-[#B5CF80] font-medium">
+                      你的情绪从 {preTest?.Q1_mood ?? 0} 升到了 {postTest?.Q1_mood ?? 0}，上升了 {change} 分 ↑（点击重新测试）
+                    </p>
+                  );
+                } else if (change < 0) {
+                  return (
+                    <p className="text-sm text-[#FE814B] font-medium">
+                      你的情绪从 {preTest?.Q1_mood ?? 0} 变成了 {postTest?.Q1_mood ?? 0}（点击重新测试）
+                    </p>
+                  );
+                } else {
+                  return (
+                    <p className="text-sm text-[rgba(31,22,15,0.64)] font-medium">
+                      今天可能有点难，没关系，你完成了训练，这就够了 ✓（点击重新测试）
+                    </p>
+                  );
+                }
+              })()}
+            </div>
+          </button>
+        ) : levelProgressPercent === 100 ? (
+          // 课程全部完成但后测未做 - 可填写
+          <button
+            onClick={() => navigate(`/pre-post-test/${trainingId}/${selectedLevel}/post`)}
+            className="mt-4 w-full bg-white rounded-2xl p-4 border-2 border-[#B5CF80]/50 text-left hover:border-[#B5CF80] transition-all flex items-center gap-4"
+          >
+            <div className="w-12 h-12 rounded-full bg-[#B5CF80]/20 flex items-center justify-center flex-shrink-0">
+              <TrendingUp className="w-6 h-6 text-[#B5CF80]" />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="font-bold text-[#4b3425]">训练后测</h3>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#B5CF80]/20 text-[#B5CF80] font-semibold">可填写</span>
+              </div>
+              <p className="text-sm text-[rgba(31,22,15,0.64)]">恭喜完成{currentLevel.title}！测测你的进步</p>
+            </div>
+            <TrendingUp className="w-5 h-5 text-[#B5CF80]" />
+          </button>
+        ) : (
+          // 后测未解锁 - 锁定状态
+          <div className="mt-4 w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.24)] flex items-center gap-4 opacity-50">
+            <div className="w-12 h-12 rounded-full bg-[rgba(31,22,15,0.08)] flex items-center justify-center flex-shrink-0">
+              <TrendingUp className="w-6 h-6 text-[rgba(31,22,15,0.32)]" />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="font-bold text-[#4b3425]">训练后测</h3>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[rgba(31,22,15,0.12)] text-[rgba(31,22,15,0.48)] font-semibold">锁定</span>
+              </div>
+              <p className="text-sm text-[rgba(31,22,15,0.48)]">完成{currentLevel.title}后解锁</p>
+            </div>
+            <Lock className="w-5 h-5 text-[rgba(31,22,15,0.32)]" />
+          </div>
+        )}
 
         {/* Theory Base */}
         <div className="mt-6 bg-[#FFDD5B]/10 rounded-2xl p-5 border-0">

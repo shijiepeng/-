@@ -201,7 +201,7 @@ export function Home() {
                 {favoriteTrainingsWithProgress.slice(0, 3).map((training) => (
                   <button
                     key={training.id}
-                    onClick={() => navigate(`/training/${training.id}`)}
+                    onClick={() => navigate(`/training/${training.id}/level/beginner`)}
                     className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] hover:border-[#B5CF80] shadow-md hover:shadow-lg transition-all text-left active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-3 mb-3">

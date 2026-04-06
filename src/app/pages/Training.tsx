@@ -92,7 +92,7 @@ export function Training() {
                 return (
                   <motion.button
                     key={training.id}
-                    onClick={() => navigate(`/training/${training.id}`)}
+                    onClick={() => navigate(`/training/${training.id}/level/beginner`)}
                     className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#9bb068] transition-all flex items-center gap-4 active:scale-[0.98]"
                     whileTap={{ scale: 0.98 }}
                   >
@@ -142,7 +142,7 @@ export function Training() {
                 return (
                   <motion.button
                     key={training.id}
-                    onClick={() => navigate(`/training/${training.id}`)}
+                    onClick={() => navigate(`/training/${training.id}/level/beginner`)}
                     className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#CFC3EF] transition-all flex items-center gap-4 active:scale-[0.98]"
                     whileTap={{ scale: 0.98 }}
                   >
@@ -192,7 +192,7 @@ export function Training() {
                 return (
                   <motion.button
                     key={training.id}
-                    onClick={() => navigate(`/training/${training.id}`)}
+                    onClick={() => navigate(`/training/${training.id}/level/beginner`)}
                     className="w-full bg-white rounded-2xl p-4 border-2 border-[rgba(31,22,15,0.12)] text-left hover:border-[#FFC0C0] transition-all flex items-center gap-4 active:scale-[0.98]"
                     whileTap={{ scale: 0.98 }}
                   >

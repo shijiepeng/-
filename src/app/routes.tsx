@@ -8,6 +8,7 @@ import { DeepAssessmentResults } from "./pages/DeepAssessmentResults";
 import { Training } from "./pages/Training";
 import { TrainingDetail } from "./pages/TrainingDetail";
 import { LessonDetail } from "./pages/LessonDetail";
+import { PrePostTest } from "./pages/PrePostTest";
 import { MoodLog } from "./pages/MoodLog";
 import { MoodEdit } from "./pages/MoodEdit";
 import { Profile } from "./pages/Profile";
@@ -46,12 +47,16 @@ export const router = createBrowserRouter([
     Component: Training,
   },
   {
-    path: "/training/:trainingId",
+    path: "/training/:trainingId/level/:level",
     Component: TrainingDetail,
   },
   {
     path: "/training/:trainingId/level/:level/lesson/:lessonId",
     Component: LessonDetail,
+  },
+  {
+    path: "/pre-post-test/:trainingId/:level/:testType",
+    Component: PrePostTest,
   },
   {
     path: "/situations",

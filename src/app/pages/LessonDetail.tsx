@@ -34,10 +34,10 @@ export function LessonDetail() {
   const isLastLesson = currentIndex === currentLevel.lessons.length - 1;
 
   // 检查这节课是否已完成
-  const progress = getProgress(trainingId);
+  const progress = getProgress(trainingId!);
   const isCompleted =
     progress?.completedLessons[level as keyof typeof progress.completedLessons]?.includes(
-      lesson.id
+      Number(lesson.id)
     ) ?? false;
 
   const triggerConfetti = useCallback(() => {
@@ -84,8 +84,8 @@ export function LessonDetail() {
         const nextLesson = currentLevel.lessons[currentIndex + 1];
         navigate(`/training/${trainingId}/level/${level}/lesson/${nextLesson.id}`);
       } else {
-        // 最后一课返回课程列表
-        navigate(`/training/${trainingId}`);
+        // 最后一课跳转到后测页面
+        navigate(`/pre-post-test/${trainingId}/${level}/post`);
       }
     }, isNewComplete ? 1500 : 300);
   };
@@ -306,6 +306,16 @@ export function LessonDetail() {
               "完成并继续"
             )}
           </motion.button>
+          {/* 最后一课显示开始后测按钮 */}
+          {isLastLesson && !isCompleted && (
+            <motion.button
+              onClick={() => navigate(`/pre-post-test/${trainingId}/${level}/post`)}
+              className="flex-1 py-4 rounded-full font-semibold text-lg text-white bg-[#B5CF80] flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+              whileTap={{ scale: 0.98 }}
+            >
+              开始后测
+            </motion.button>
+          )}
         </motion.div>
       </motion.div>
     );
@@ -322,7 +332,7 @@ export function LessonDetail() {
       >
         <div className="flex items-center justify-between mb-6">
           <motion.button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate(`/training/${trainingId}/level/${level}`)}
             className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[rgba(31,22,15,0.24)]"
             whileTap={{ scale: 0.95 }}
           >

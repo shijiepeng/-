@@ -5,6 +5,7 @@ import type {
   TrainingProgress,
   AssessmentResult,
   UserStats,
+  PrePostTestResult,
 } from "./types";
 
 const STORAGE_KEY = "mental-gym-store";
@@ -25,6 +26,7 @@ const defaultStore: AppStore = {
   userStats: defaultStats,
   favorites: [],
   hasCompletedOnboarding: false,
+  prePostTestResults: [],
 };
 
 // ==================== localStorage 操作 ====================
@@ -294,5 +296,74 @@ export function useAssessment() {
     assessmentData: store.assessmentData,
     saveAssessment,
     clearAssessment,
+  };
+}
+
+// ==================== 训练前后测 Hook ====================
+
+export function usePrePostTest() {
+  const { store, update } = useStore();
+
+  const savePrePostTest = useCallback((result: PrePostTestResult) => {
+    const existing = store.prePostTestResults.find(
+      (r) => r.trainingId === result.trainingId && r.level === result.level && r.type === result.type
+    );
+
+    if (existing) {
+      // 更新已有的
+      update({
+        prePostTestResults: store.prePostTestResults.map((r) =>
+          r.trainingId === result.trainingId && r.level === result.level && r.type === result.type
+            ? result
+            : r
+        ),
+      });
+    } else {
+      // 新增
+      update({
+        prePostTestResults: [...store.prePostTestResults, result],
+      });
+    }
+  }, [store.prePostTestResults, update]);
+
+  const getPreTest = useCallback(
+    (trainingId: string, level: "beginner" | "advanced" | "intensive"): PrePostTestResult | undefined => {
+      return store.prePostTestResults.find(
+        (r) => r.trainingId === trainingId && r.level === level && r.type === "pre"
+      );
+    },
+    [store.prePostTestResults]
+  );
+
+  const getPostTest = useCallback(
+    (trainingId: string, level: "beginner" | "advanced" | "intensive"): PrePostTestResult | undefined => {
+      return store.prePostTestResults.find(
+        (r) => r.trainingId === trainingId && r.level === level && r.type === "post"
+      );
+    },
+    [store.prePostTestResults]
+  );
+
+  const hasPreTest = useCallback(
+    (trainingId: string, level: "beginner" | "advanced" | "intensive"): boolean => {
+      return !!getPreTest(trainingId, level);
+    },
+    [getPreTest]
+  );
+
+  const hasPostTest = useCallback(
+    (trainingId: string, level: "beginner" | "advanced" | "intensive"): boolean => {
+      return !!getPostTest(trainingId, level);
+    },
+    [getPostTest]
+  );
+
+  return {
+    prePostTestResults: store.prePostTestResults,
+    savePrePostTest,
+    getPreTest,
+    getPostTest,
+    hasPreTest,
+    hasPostTest,
   };
 }
