@@ -306,17 +306,7 @@ export function LessonDetail() {
               "完成并继续"
             )}
           </motion.button>
-          {/* 最后一课显示开始后测按钮 */}
-          {isLastLesson && !isCompleted && (
-            <motion.button
-              onClick={() => navigate(`/pre-post-test/${trainingId}/${level}/post`)}
-              className="flex-1 py-4 rounded-full font-semibold text-lg text-white bg-[#B5CF80] flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
-              whileTap={{ scale: 0.98 }}
-            >
-              开始后测
-            </motion.button>
-          )}
-        </motion.div>
+          </motion.div>
       </motion.div>
     );
   };
